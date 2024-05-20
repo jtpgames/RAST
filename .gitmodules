@@ -1,0 +1,9 @@
+[submodule "locust_scripts"]
+	path = locust_scripts
+	url = https://github.com/jtpgames/Locust_Scripts
+[submodule "TeaStore"]
+	path = TeaStore
+	url = https://github.com/jtpgames/TeaStore
+[submodule "Simulators"]
+	path = Simulators
+	url = https://github.com/jtpgames/Simulators
