@@ -1,6 +1,6 @@
-# Improved RAST Simulator and Load Tester Components (PADS 2024)
+= Improved RAST Simulator and Load Tester Components (PADS 2024)
 
-**Last change from: 01.05.2024**
+**Last change from: 21.05.2024**
 
 **TODO: Accepted for publication at PADS 2024. Add link.**
 
@@ -68,4 +68,20 @@ The prediction data as described in the paper was acquired by running a load tes
 ### Validation data
 The validation data is available in our Datalore notebook <<datalore_notebook>>.
 Acquiring the validation data from TeaStore is a more complex process involving downloading kieker logs, transforming them and storing into an SQLite database. The code and instructions for this are currently not available on GitHub but in a private repository on JetBrains Space. Access is granted for reviewers after requesting it from the main author of the paper.
+
+= Artefacts
+
+* GitHub Repository(https://github.com/jtpgames/Locust_Scripts/tree/PADS2024): Includes the source code and instructions for the RAST Load Tester component.
+* GitHub Repository(https://github.com/jtpgames/Simulators): Includes the source code, predictive models(including models not presented in the paper), and instructions for the RAST Simulator component.
+* Datalore notebook(https://datalore.jetbrains.com/notebook/6K6VkECuLMtN5t5nSYg6WK/TVGp1egwDQlwI19astdVlM): Includes instructions, our measurements and the Python code we use for similarity calculation. To access the datalore notebook (similar to a Jupyter notebook) creation of a free account is required.
+* similarity_scores.csv File created from the ResultComparer Python script found in our Datalore notebook.
+* similarity_scores.ods: File created from the similarity_scores.csv file using LibreOffice. Includes all formulaes to assess the experimental results as well as the figures found in the paper. Also includes results and figures not found in the paper.
+* Figures: Includes all figures generated using the similarity_scores.ods file.
+
+[bibliography]
+= References
+
+* [[[teastore_fork]]](https://github.com/jtpgames/TeaStore)
+* [[[simulator_repo]]](https://github.com/jtpgames/Simulators)
+* [[[datalore_notebook]]](https://datalore.jetbrains.com/notebook/6K6VkECuLMtN5t5nSYg6WK/TVGp1egwDQlwI19astdVlM)
 

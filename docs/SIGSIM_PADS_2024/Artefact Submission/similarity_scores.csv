@@ -1,0 +1,337 @@
+Intensity,Model,Corrections,Request Type,Cosine Similarity
+low,Ridge with PR3,One correction,ID_IndexServlet_handleGETRequest,0.8776551510815817
+low,Ridge with PR3,One correction,ID_LoginServlet_handleGETRequest,0.8875489972290886
+low,Ridge with PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.7490940343124606
+low,Ridge with PR3,One correction,ID_CategoryServlet_handleGETRequest,0.8595759928597625
+low,Ridge with PR3,One correction,ID_ProductServlet_handleGETRequest,0.8827416983506624
+low,Ridge with PR3,One correction,ID_CartActionServlet_handleGETRequest,0.8512784055492375
+low,Ridge with PR3,One correction,ID_ProfileServlet_handleGETRequest,0.8820820040784738
+low,Ridge with PR3,No correction,ID_IndexServlet_handleGETRequest,0.9003460210364853
+low,Ridge with PR3,No correction,ID_LoginServlet_handleGETRequest,0.9107611363001126
+low,Ridge with PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.7773014305175747
+low,Ridge with PR3,No correction,ID_CategoryServlet_handleGETRequest,0.8679969633076099
+low,Ridge with PR3,No correction,ID_ProductServlet_handleGETRequest,0.8852675546399129
+low,Ridge with PR3,No correction,ID_CartActionServlet_handleGETRequest,0.8605595149906387
+low,Ridge with PR3,No correction,ID_ProfileServlet_handleGETRequest,0.8981013841700483
+low,Ridge with old config,One correction,ID_IndexServlet_handleGETRequest,0.8118889278289495
+low,Ridge with old config,One correction,ID_LoginServlet_handleGETRequest,0.8642464097393596
+low,Ridge with old config,One correction,ID_LoginActionServlet_handlePOSTRequest,0.6817259311051729
+low,Ridge with old config,One correction,ID_CategoryServlet_handleGETRequest,0.8335515884858691
+low,Ridge with old config,One correction,ID_ProductServlet_handleGETRequest,0.8544907404603387
+low,Ridge with old config,One correction,ID_CartActionServlet_handleGETRequest,0.8228565027011732
+low,Ridge with old config,One correction,ID_ProfileServlet_handleGETRequest,0.8648600868420483
+low,Ridge with old config,No correction,ID_IndexServlet_handleGETRequest,0.8906370176129038
+low,Ridge with old config,No correction,ID_LoginServlet_handleGETRequest,0.9104629764871934
+low,Ridge with old config,No correction,ID_LoginActionServlet_handlePOSTRequest,0.7881031035560481
+low,Ridge with old config,No correction,ID_CategoryServlet_handleGETRequest,0.867701267449377
+low,Ridge with old config,No correction,ID_ProductServlet_handleGETRequest,0.8833810548726845
+low,Ridge with old config,No correction,ID_CartActionServlet_handleGETRequest,0.8597635065005664
+low,Ridge with old config,No correction,ID_ProfileServlet_handleGETRequest,0.896164438194524
+low,Ridge without PR3,One correction,ID_IndexServlet_handleGETRequest,nan
+low,Ridge without PR3,One correction,ID_LoginServlet_handleGETRequest,nan
+low,Ridge without PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.23375446311945405
+low,Ridge without PR3,One correction,ID_CategoryServlet_handleGETRequest,0.8578199528252233
+low,Ridge without PR3,One correction,ID_ProductServlet_handleGETRequest,0.8806723070077206
+low,Ridge without PR3,One correction,ID_CartActionServlet_handleGETRequest,0.859026989326636
+low,Ridge without PR3,One correction,ID_ProfileServlet_handleGETRequest,0.8954849685847873
+low,Ridge without PR3,No correction,ID_IndexServlet_handleGETRequest,nan
+low,Ridge without PR3,No correction,ID_LoginServlet_handleGETRequest,nan
+low,Ridge without PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.2908588985599604
+low,Ridge without PR3,No correction,ID_CategoryServlet_handleGETRequest,0.8498068392399312
+low,Ridge without PR3,No correction,ID_ProductServlet_handleGETRequest,0.8806117025616256
+low,Ridge without PR3,No correction,ID_CartActionServlet_handleGETRequest,0.8541583099192779
+low,Ridge without PR3,No correction,ID_ProfileServlet_handleGETRequest,0.8965520235599389
+low,DT with PR3,One correction,ID_IndexServlet_handleGETRequest,0.8703404577961273
+low,DT with PR3,One correction,ID_LoginServlet_handleGETRequest,0.8760543216518322
+low,DT with PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.7324806171649645
+low,DT with PR3,One correction,ID_CategoryServlet_handleGETRequest,0.8697377956466199
+low,DT with PR3,One correction,ID_ProductServlet_handleGETRequest,0.8781825303298018
+low,DT with PR3,One correction,ID_CartActionServlet_handleGETRequest,0.7949645907859352
+low,DT with PR3,One correction,ID_ProfileServlet_handleGETRequest,0.8675184676316045
+low,DT with PR3,No correction,ID_IndexServlet_handleGETRequest,0.9007777100512349
+low,DT with PR3,No correction,ID_LoginServlet_handleGETRequest,0.9110168790260246
+low,DT with PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.7728254188353646
+low,DT with PR3,No correction,ID_CategoryServlet_handleGETRequest,0.8689513214046841
+low,DT with PR3,No correction,ID_ProductServlet_handleGETRequest,0.8859946745663189
+low,DT with PR3,No correction,ID_CartActionServlet_handleGETRequest,0.8506137438432021
+low,DT with PR3,No correction,ID_ProfileServlet_handleGETRequest,0.8985346283498341
+low,DT with old config,One correction,ID_IndexServlet_handleGETRequest,0.7756572411385644
+low,DT with old config,One correction,ID_LoginServlet_handleGETRequest,0.8037059280616046
+low,DT with old config,One correction,ID_LoginActionServlet_handlePOSTRequest,0.6846634288999686
+low,DT with old config,One correction,ID_CategoryServlet_handleGETRequest,0.7703274641950993
+low,DT with old config,One correction,ID_ProductServlet_handleGETRequest,0.7615601898875487
+low,DT with old config,One correction,ID_CartActionServlet_handleGETRequest,0.7949962881929579
+low,DT with old config,One correction,ID_ProfileServlet_handleGETRequest,0.7785424714555904
+low,DT with old config,No correction,ID_IndexServlet_handleGETRequest,0.9000502000451749
+low,DT with old config,No correction,ID_LoginServlet_handleGETRequest,0.9059111780006578
+low,DT with old config,No correction,ID_LoginActionServlet_handlePOSTRequest,0.7725476932502887
+low,DT with old config,No correction,ID_CategoryServlet_handleGETRequest,0.7198881859016107
+low,DT with old config,No correction,ID_ProductServlet_handleGETRequest,0.7302318854907164
+low,DT with old config,No correction,ID_CartActionServlet_handleGETRequest,0.8468956559201963
+low,DT with old config,No correction,ID_ProfileServlet_handleGETRequest,0.7708644851495238
+low,DT without PR3,One correction,ID_IndexServlet_handleGETRequest,0.8768649585233288
+low,DT without PR3,One correction,ID_LoginServlet_handleGETRequest,0.8891693078974414
+low,DT without PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.7718407092308747
+low,DT without PR3,One correction,ID_CategoryServlet_handleGETRequest,0.8693410124352473
+low,DT without PR3,One correction,ID_ProductServlet_handleGETRequest,0.8723426831799871
+low,DT without PR3,One correction,ID_CartActionServlet_handleGETRequest,0.7827525626770968
+low,DT without PR3,One correction,ID_ProfileServlet_handleGETRequest,0.8945041666195055
+low,DT without PR3,No correction,ID_IndexServlet_handleGETRequest,0.6176939321709397
+low,DT without PR3,No correction,ID_LoginServlet_handleGETRequest,0.8857331468438293
+low,DT without PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.7372282164215926
+low,DT without PR3,No correction,ID_CategoryServlet_handleGETRequest,0.7473988881456902
+low,DT without PR3,No correction,ID_ProductServlet_handleGETRequest,0.8713719762438985
+low,DT without PR3,No correction,ID_CartActionServlet_handleGETRequest,0.7977928060394395
+low,DT without PR3,No correction,ID_ProfileServlet_handleGETRequest,0.8597243779209953
+low2,Ridge with PR3,One correction,ID_IndexServlet_handleGETRequest,0.5749988443956441
+low2,Ridge with PR3,One correction,ID_LoginServlet_handleGETRequest,0.6940072605873027
+low2,Ridge with PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.6756897698271318
+low2,Ridge with PR3,One correction,ID_CategoryServlet_handleGETRequest,0.7471105834334926
+low2,Ridge with PR3,One correction,ID_ProductServlet_handleGETRequest,0.7421023601556385
+low2,Ridge with PR3,One correction,ID_CartActionServlet_handleGETRequest,0.6599270449764439
+low2,Ridge with PR3,One correction,ID_ProfileServlet_handleGETRequest,0.5120896441857473
+low2,Ridge with PR3,No correction,ID_IndexServlet_handleGETRequest,0.6198048478003269
+low2,Ridge with PR3,No correction,ID_LoginServlet_handleGETRequest,0.7544010940611583
+low2,Ridge with PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.7408598588502631
+low2,Ridge with PR3,No correction,ID_CategoryServlet_handleGETRequest,0.7749423428421187
+low2,Ridge with PR3,No correction,ID_ProductServlet_handleGETRequest,0.7605382142849699
+low2,Ridge with PR3,No correction,ID_CartActionServlet_handleGETRequest,0.6794712535184854
+low2,Ridge with PR3,No correction,ID_ProfileServlet_handleGETRequest,0.6072841151380447
+low2,Ridge with old config,One correction,ID_IndexServlet_handleGETRequest,0.532667724573188
+low2,Ridge with old config,One correction,ID_LoginServlet_handleGETRequest,0.6912555430867833
+low2,Ridge with old config,One correction,ID_LoginActionServlet_handlePOSTRequest,0.6266207730754685
+low2,Ridge with old config,One correction,ID_CategoryServlet_handleGETRequest,0.7233415696664258
+low2,Ridge with old config,One correction,ID_ProductServlet_handleGETRequest,0.7064486840260119
+low2,Ridge with old config,One correction,ID_CartActionServlet_handleGETRequest,0.6403146987045049
+low2,Ridge with old config,One correction,ID_ProfileServlet_handleGETRequest,0.5246592248890098
+low2,Ridge with old config,No correction,ID_IndexServlet_handleGETRequest,0.623955544758968
+low2,Ridge with old config,No correction,ID_LoginServlet_handleGETRequest,0.7442447876281225
+low2,Ridge with old config,No correction,ID_LoginActionServlet_handlePOSTRequest,0.7457080594773826
+low2,Ridge with old config,No correction,ID_CategoryServlet_handleGETRequest,0.7668740467450551
+low2,Ridge with old config,No correction,ID_ProductServlet_handleGETRequest,0.7565082319616725
+low2,Ridge with old config,No correction,ID_CartActionServlet_handleGETRequest,0.6720795601471679
+low2,Ridge with old config,No correction,ID_ProfileServlet_handleGETRequest,0.6066211234902578
+low2,Ridge without PR3,One correction,ID_IndexServlet_handleGETRequest,0.11261924997633059
+low2,Ridge without PR3,One correction,ID_LoginServlet_handleGETRequest,0.3251797999215537
+low2,Ridge without PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.42748597630148516
+low2,Ridge without PR3,One correction,ID_CategoryServlet_handleGETRequest,0.7278495942752071
+low2,Ridge without PR3,One correction,ID_ProductServlet_handleGETRequest,0.7643399020310447
+low2,Ridge without PR3,One correction,ID_CartActionServlet_handleGETRequest,0.6710063840848828
+low2,Ridge without PR3,One correction,ID_ProfileServlet_handleGETRequest,0.5765848516138774
+low2,Ridge without PR3,No correction,ID_IndexServlet_handleGETRequest,0.2254067907300057
+low2,Ridge without PR3,No correction,ID_LoginServlet_handleGETRequest,0.29964555301560614
+low2,Ridge without PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.42097743987906144
+low2,Ridge without PR3,No correction,ID_CategoryServlet_handleGETRequest,0.72794326420226
+low2,Ridge without PR3,No correction,ID_ProductServlet_handleGETRequest,0.7610897930049354
+low2,Ridge without PR3,No correction,ID_CartActionServlet_handleGETRequest,0.6685037075066006
+low2,Ridge without PR3,No correction,ID_ProfileServlet_handleGETRequest,0.5764966581150098
+low2,DT with PR3,One correction,ID_IndexServlet_handleGETRequest,0.5876014477105009
+low2,DT with PR3,One correction,ID_LoginServlet_handleGETRequest,0.7091805808401791
+low2,DT with PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.6714864809845054
+low2,DT with PR3,One correction,ID_CategoryServlet_handleGETRequest,0.7508986864252749
+low2,DT with PR3,One correction,ID_ProductServlet_handleGETRequest,0.7042809992153473
+low2,DT with PR3,One correction,ID_CartActionServlet_handleGETRequest,0.5791332851982807
+low2,DT with PR3,One correction,ID_ProfileServlet_handleGETRequest,0.5223859015271163
+low2,DT with PR3,No correction,ID_IndexServlet_handleGETRequest,0.5185262059629234
+low2,DT with PR3,No correction,ID_LoginServlet_handleGETRequest,0.7537500775208402
+low2,DT with PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.7271746335787987
+low2,DT with PR3,No correction,ID_CategoryServlet_handleGETRequest,0.7784764446912246
+low2,DT with PR3,No correction,ID_ProductServlet_handleGETRequest,0.7632970984324472
+low2,DT with PR3,No correction,ID_CartActionServlet_handleGETRequest,0.6797564562195372
+low2,DT with PR3,No correction,ID_ProfileServlet_handleGETRequest,0.6282651322949977
+low2,DT with old config,One correction,ID_IndexServlet_handleGETRequest,0.5286472314738971
+low2,DT with old config,One correction,ID_LoginServlet_handleGETRequest,0.6720634768632889
+low2,DT with old config,One correction,ID_LoginActionServlet_handlePOSTRequest,0.5969935924966077
+low2,DT with old config,One correction,ID_CategoryServlet_handleGETRequest,0.6730674612313012
+low2,DT with old config,One correction,ID_ProductServlet_handleGETRequest,0.6549759436080915
+low2,DT with old config,One correction,ID_CartActionServlet_handleGETRequest,0.6041414364244498
+low2,DT with old config,One correction,ID_ProfileServlet_handleGETRequest,0.49996843691256454
+low2,DT with old config,No correction,ID_IndexServlet_handleGETRequest,0.611669765930852
+low2,DT with old config,No correction,ID_LoginServlet_handleGETRequest,0.7540074904000421
+low2,DT with old config,No correction,ID_LoginActionServlet_handlePOSTRequest,0.7349063004427249
+low2,DT with old config,No correction,ID_CategoryServlet_handleGETRequest,0.6752490550579984
+low2,DT with old config,No correction,ID_ProductServlet_handleGETRequest,0.6719270855631759
+low2,DT with old config,No correction,ID_CartActionServlet_handleGETRequest,0.673139979489467
+low2,DT with old config,No correction,ID_ProfileServlet_handleGETRequest,0.5478809815476129
+low2,DT without PR3,One correction,ID_IndexServlet_handleGETRequest,0.4359123205800641
+low2,DT without PR3,One correction,ID_LoginServlet_handleGETRequest,0.40889553963403447
+low2,DT without PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.6103721020610126
+low2,DT without PR3,One correction,ID_CategoryServlet_handleGETRequest,0.5306547856714579
+low2,DT without PR3,One correction,ID_ProductServlet_handleGETRequest,0.6906122640589616
+low2,DT without PR3,One correction,ID_CartActionServlet_handleGETRequest,0.5764927154241909
+low2,DT without PR3,One correction,ID_ProfileServlet_handleGETRequest,0.4661028400778742
+low2,DT without PR3,No correction,ID_IndexServlet_handleGETRequest,0.3392680257638005
+low2,DT without PR3,No correction,ID_LoginServlet_handleGETRequest,0.39890340146765546
+low2,DT without PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.6010360130334605
+low2,DT without PR3,No correction,ID_CategoryServlet_handleGETRequest,0.51914065107925
+low2,DT without PR3,No correction,ID_ProductServlet_handleGETRequest,0.7152290521899188
+low2,DT without PR3,No correction,ID_CartActionServlet_handleGETRequest,0.5745728997009499
+low2,DT without PR3,No correction,ID_ProfileServlet_handleGETRequest,0.4847438225172453
+med,Ridge with PR3,One correction,ID_IndexServlet_handleGETRequest,0.598112115585804
+med,Ridge with PR3,One correction,ID_LoginServlet_handleGETRequest,0.508007381796709
+med,Ridge with PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.5348946815829971
+med,Ridge with PR3,One correction,ID_CategoryServlet_handleGETRequest,0.7068139134589901
+med,Ridge with PR3,One correction,ID_ProductServlet_handleGETRequest,0.7077902879329742
+med,Ridge with PR3,One correction,ID_CartActionServlet_handleGETRequest,0.5776310765198455
+med,Ridge with PR3,One correction,ID_ProfileServlet_handleGETRequest,0.4185813916522291
+med,Ridge with PR3,No correction,ID_IndexServlet_handleGETRequest,0.6656151922000939
+med,Ridge with PR3,No correction,ID_LoginServlet_handleGETRequest,0.5646122444736661
+med,Ridge with PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.6021967460235863
+med,Ridge with PR3,No correction,ID_CategoryServlet_handleGETRequest,0.756704771101787
+med,Ridge with PR3,No correction,ID_ProductServlet_handleGETRequest,0.7633266350615289
+med,Ridge with PR3,No correction,ID_CartActionServlet_handleGETRequest,0.6224621790297014
+med,Ridge with PR3,No correction,ID_ProfileServlet_handleGETRequest,0.48560625345947583
+med,Ridge with old config,One correction,ID_IndexServlet_handleGETRequest,0.5203397617323365
+med,Ridge with old config,One correction,ID_LoginServlet_handleGETRequest,0.4675882295261627
+med,Ridge with old config,One correction,ID_LoginActionServlet_handlePOSTRequest,0.518841889921253
+med,Ridge with old config,One correction,ID_CategoryServlet_handleGETRequest,0.6900126914639636
+med,Ridge with old config,One correction,ID_ProductServlet_handleGETRequest,0.7146388826628164
+med,Ridge with old config,One correction,ID_CartActionServlet_handleGETRequest,0.5842715602832452
+med,Ridge with old config,One correction,ID_ProfileServlet_handleGETRequest,0.4331501297623684
+med,Ridge with old config,No correction,ID_IndexServlet_handleGETRequest,0.6646636278454876
+med,Ridge with old config,No correction,ID_LoginServlet_handleGETRequest,0.557872021791347
+med,Ridge with old config,No correction,ID_LoginActionServlet_handlePOSTRequest,0.6069034222241713
+med,Ridge with old config,No correction,ID_CategoryServlet_handleGETRequest,0.7600240193956631
+med,Ridge with old config,No correction,ID_ProductServlet_handleGETRequest,0.7640368015775812
+med,Ridge with old config,No correction,ID_CartActionServlet_handleGETRequest,0.6229937229924961
+med,Ridge with old config,No correction,ID_ProfileServlet_handleGETRequest,0.48984555033118843
+med,Ridge without PR3,One correction,ID_IndexServlet_handleGETRequest,0.5579077032544077
+med,Ridge without PR3,One correction,ID_LoginServlet_handleGETRequest,0.5267131552353266
+med,Ridge without PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.5302538045067653
+med,Ridge without PR3,One correction,ID_CategoryServlet_handleGETRequest,0.7383046350047712
+med,Ridge without PR3,One correction,ID_ProductServlet_handleGETRequest,0.7579995194114586
+med,Ridge without PR3,One correction,ID_CartActionServlet_handleGETRequest,0.617719471196616
+med,Ridge without PR3,One correction,ID_ProfileServlet_handleGETRequest,0.4570104682748734
+med,Ridge without PR3,No correction,ID_IndexServlet_handleGETRequest,0.5560914653700681
+med,Ridge without PR3,No correction,ID_LoginServlet_handleGETRequest,0.5427119723731273
+med,Ridge without PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.5325803161529448
+med,Ridge without PR3,No correction,ID_CategoryServlet_handleGETRequest,0.7400822223495698
+med,Ridge without PR3,No correction,ID_ProductServlet_handleGETRequest,0.7586153976173549
+med,Ridge without PR3,No correction,ID_CartActionServlet_handleGETRequest,0.6194478111744864
+med,Ridge without PR3,No correction,ID_ProfileServlet_handleGETRequest,0.4557310049174601
+med,DT with PR3,One correction,ID_IndexServlet_handleGETRequest,0.5054798311250978
+med,DT with PR3,One correction,ID_LoginServlet_handleGETRequest,0.47943292755370637
+med,DT with PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.42351280231723576
+med,DT with PR3,One correction,ID_CategoryServlet_handleGETRequest,0.7061413449247069
+med,DT with PR3,One correction,ID_ProductServlet_handleGETRequest,0.6072765181622767
+med,DT with PR3,One correction,ID_CartActionServlet_handleGETRequest,0.4538001122695622
+med,DT with PR3,One correction,ID_ProfileServlet_handleGETRequest,0.31835036645536463
+med,DT with PR3,No correction,ID_IndexServlet_handleGETRequest,0.6567721140832699
+med,DT with PR3,No correction,ID_LoginServlet_handleGETRequest,0.5638541381361925
+med,DT with PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.552211369653292
+med,DT with PR3,No correction,ID_CategoryServlet_handleGETRequest,0.7521867261796021
+med,DT with PR3,No correction,ID_ProductServlet_handleGETRequest,0.7333175132891885
+med,DT with PR3,No correction,ID_CartActionServlet_handleGETRequest,0.6077095963466167
+med,DT with PR3,No correction,ID_ProfileServlet_handleGETRequest,0.47457515602195965
+med,DT with old config,One correction,ID_IndexServlet_handleGETRequest,0.5858673283437266
+med,DT with old config,One correction,ID_LoginServlet_handleGETRequest,0.5201899103286701
+med,DT with old config,One correction,ID_LoginActionServlet_handlePOSTRequest,0.5309616045193895
+med,DT with old config,One correction,ID_CategoryServlet_handleGETRequest,0.6739529913693153
+med,DT with old config,One correction,ID_ProductServlet_handleGETRequest,0.6730527299050523
+med,DT with old config,One correction,ID_CartActionServlet_handleGETRequest,0.5458324647834425
+med,DT with old config,One correction,ID_ProfileServlet_handleGETRequest,0.3526733484746056
+med,DT with old config,No correction,ID_IndexServlet_handleGETRequest,0.6747851356148871
+med,DT with old config,No correction,ID_LoginServlet_handleGETRequest,0.5742290529524408
+med,DT with old config,No correction,ID_LoginActionServlet_handlePOSTRequest,0.604875659253948
+med,DT with old config,No correction,ID_CategoryServlet_handleGETRequest,0.7059134992222253
+med,DT with old config,No correction,ID_ProductServlet_handleGETRequest,0.7223207625059144
+med,DT with old config,No correction,ID_CartActionServlet_handleGETRequest,0.6213516265280571
+med,DT with old config,No correction,ID_ProfileServlet_handleGETRequest,0.46795451865564097
+med,DT without PR3,One correction,ID_IndexServlet_handleGETRequest,0.5047017827225714
+med,DT without PR3,One correction,ID_LoginServlet_handleGETRequest,0.43096744980203583
+med,DT without PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.4913997319695792
+med,DT without PR3,One correction,ID_CategoryServlet_handleGETRequest,0.6692653555797904
+med,DT without PR3,One correction,ID_ProductServlet_handleGETRequest,0.7253285466026133
+med,DT without PR3,One correction,ID_CartActionServlet_handleGETRequest,0.4341271846512677
+med,DT without PR3,One correction,ID_ProfileServlet_handleGETRequest,0.404495779937225
+med,DT without PR3,No correction,ID_IndexServlet_handleGETRequest,0.5172049857228185
+med,DT without PR3,No correction,ID_LoginServlet_handleGETRequest,0.42479253014753454
+med,DT without PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.5025478839747213
+med,DT without PR3,No correction,ID_CategoryServlet_handleGETRequest,0.685112499154188
+med,DT without PR3,No correction,ID_ProductServlet_handleGETRequest,0.7457879139913453
+med,DT without PR3,No correction,ID_CartActionServlet_handleGETRequest,0.4712664799167233
+med,DT without PR3,No correction,ID_ProfileServlet_handleGETRequest,0.39429945589284704
+high,Ridge with PR3,One correction,ID_IndexServlet_handleGETRequest,0.5153159585057858
+high,Ridge with PR3,One correction,ID_LoginServlet_handleGETRequest,0.5406750020132283
+high,Ridge with PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.45893304487531983
+high,Ridge with PR3,One correction,ID_CategoryServlet_handleGETRequest,0.6726714575733878
+high,Ridge with PR3,One correction,ID_ProductServlet_handleGETRequest,0.7059114565098489
+high,Ridge with PR3,One correction,ID_CartActionServlet_handleGETRequest,0.5154720568246282
+high,Ridge with PR3,One correction,ID_ProfileServlet_handleGETRequest,0.3803967756337444
+high,Ridge with PR3,No correction,ID_IndexServlet_handleGETRequest,0.5736249677911646
+high,Ridge with PR3,No correction,ID_LoginServlet_handleGETRequest,0.5851685414374505
+high,Ridge with PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.500348909518648
+high,Ridge with PR3,No correction,ID_CategoryServlet_handleGETRequest,0.7150186302918603
+high,Ridge with PR3,No correction,ID_ProductServlet_handleGETRequest,0.7593171025302317
+high,Ridge with PR3,No correction,ID_CartActionServlet_handleGETRequest,0.5415603054633715
+high,Ridge with PR3,No correction,ID_ProfileServlet_handleGETRequest,0.41537967609064697
+high,Ridge with old config,One correction,ID_IndexServlet_handleGETRequest,0.46968677676615156
+high,Ridge with old config,One correction,ID_LoginServlet_handleGETRequest,0.40786132445498957
+high,Ridge with old config,One correction,ID_LoginActionServlet_handlePOSTRequest,0.4433031967780116
+high,Ridge with old config,One correction,ID_CategoryServlet_handleGETRequest,0.629409493661395
+high,Ridge with old config,One correction,ID_ProductServlet_handleGETRequest,0.6955709265181557
+high,Ridge with old config,One correction,ID_CartActionServlet_handleGETRequest,0.5073664185464459
+high,Ridge with old config,One correction,ID_ProfileServlet_handleGETRequest,0.3888515948538089
+high,Ridge with old config,No correction,ID_IndexServlet_handleGETRequest,0.6143219546791806
+high,Ridge with old config,No correction,ID_LoginServlet_handleGETRequest,0.6140712163862239
+high,Ridge with old config,No correction,ID_LoginActionServlet_handlePOSTRequest,0.5230590155729521
+high,Ridge with old config,No correction,ID_CategoryServlet_handleGETRequest,0.7296576947796786
+high,Ridge with old config,No correction,ID_ProductServlet_handleGETRequest,0.7771990514655295
+high,Ridge with old config,No correction,ID_CartActionServlet_handleGETRequest,0.5579918327457289
+high,Ridge with old config,No correction,ID_ProfileServlet_handleGETRequest,0.42714971715493527
+high,Ridge without PR3,One correction,ID_IndexServlet_handleGETRequest,0.603742676205048
+high,Ridge without PR3,One correction,ID_LoginServlet_handleGETRequest,0.5901452344660089
+high,Ridge without PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.509377342662509
+high,Ridge without PR3,One correction,ID_CategoryServlet_handleGETRequest,0.7319726299564101
+high,Ridge without PR3,One correction,ID_ProductServlet_handleGETRequest,0.7860204132663277
+high,Ridge without PR3,One correction,ID_CartActionServlet_handleGETRequest,0.5633742443829604
+high,Ridge without PR3,One correction,ID_ProfileServlet_handleGETRequest,0.40536870032949757
+high,Ridge without PR3,No correction,ID_IndexServlet_handleGETRequest,0.6081980568813896
+high,Ridge without PR3,No correction,ID_LoginServlet_handleGETRequest,0.5987026675342433
+high,Ridge without PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.5143401596459992
+high,Ridge without PR3,No correction,ID_CategoryServlet_handleGETRequest,0.7346032014340143
+high,Ridge without PR3,No correction,ID_ProductServlet_handleGETRequest,0.7925359944905658
+high,Ridge without PR3,No correction,ID_CartActionServlet_handleGETRequest,0.567797126529507
+high,Ridge without PR3,No correction,ID_ProfileServlet_handleGETRequest,0.4100958025922525
+high,DT with PR3,One correction,ID_IndexServlet_handleGETRequest,0.45473458559110363
+high,DT with PR3,One correction,ID_LoginServlet_handleGETRequest,0.449080844594928
+high,DT with PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.33949884786881346
+high,DT with PR3,One correction,ID_CategoryServlet_handleGETRequest,0.6605727882677325
+high,DT with PR3,One correction,ID_ProductServlet_handleGETRequest,0.6288439289669089
+high,DT with PR3,One correction,ID_CartActionServlet_handleGETRequest,0.3594775975319479
+high,DT with PR3,One correction,ID_ProfileServlet_handleGETRequest,0.26017375515805025
+high,DT with PR3,No correction,ID_IndexServlet_handleGETRequest,0.6217761732901832
+high,DT with PR3,No correction,ID_LoginServlet_handleGETRequest,0.6199831190050521
+high,DT with PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.47258436225539135
+high,DT with PR3,No correction,ID_CategoryServlet_handleGETRequest,0.7171513128476721
+high,DT with PR3,No correction,ID_ProductServlet_handleGETRequest,0.7355478212030501
+high,DT with PR3,No correction,ID_CartActionServlet_handleGETRequest,0.5334353101644155
+high,DT with PR3,No correction,ID_ProfileServlet_handleGETRequest,0.3492377930516289
+high,DT with old config,One correction,ID_IndexServlet_handleGETRequest,0.5270419232133783
+high,DT with old config,One correction,ID_LoginServlet_handleGETRequest,0.5371385337167458
+high,DT with old config,One correction,ID_LoginActionServlet_handlePOSTRequest,0.4578229493726189
+high,DT with old config,One correction,ID_CategoryServlet_handleGETRequest,0.6328823581902819
+high,DT with old config,One correction,ID_ProductServlet_handleGETRequest,0.6786265530011018
+high,DT with old config,One correction,ID_CartActionServlet_handleGETRequest,0.4858073981060324
+high,DT with old config,One correction,ID_ProfileServlet_handleGETRequest,0.3318036412718908
+high,DT with old config,No correction,ID_IndexServlet_handleGETRequest,0.6227712610920433
+high,DT with old config,No correction,ID_LoginServlet_handleGETRequest,0.6270730741106942
+high,DT with old config,No correction,ID_LoginActionServlet_handlePOSTRequest,0.5257085068021874
+high,DT with old config,No correction,ID_CategoryServlet_handleGETRequest,0.6708002377544784
+high,DT with old config,No correction,ID_ProductServlet_handleGETRequest,0.713879158934913
+high,DT with old config,No correction,ID_CartActionServlet_handleGETRequest,0.55565213285777
+high,DT with old config,No correction,ID_ProfileServlet_handleGETRequest,0.3888437025069768
+high,DT without PR3,One correction,ID_IndexServlet_handleGETRequest,0.5361971869357663
+high,DT without PR3,One correction,ID_LoginServlet_handleGETRequest,0.4881728052560442
+high,DT without PR3,One correction,ID_LoginActionServlet_handlePOSTRequest,0.39706745236717406
+high,DT without PR3,One correction,ID_CategoryServlet_handleGETRequest,0.6385944394104187
+high,DT without PR3,One correction,ID_ProductServlet_handleGETRequest,0.7275743871806033
+high,DT without PR3,One correction,ID_CartActionServlet_handleGETRequest,0.4364888079866671
+high,DT without PR3,One correction,ID_ProfileServlet_handleGETRequest,0.31261817763339106
+high,DT without PR3,No correction,ID_IndexServlet_handleGETRequest,0.5447804797986536
+high,DT without PR3,No correction,ID_LoginServlet_handleGETRequest,0.5044665912695072
+high,DT without PR3,No correction,ID_LoginActionServlet_handlePOSTRequest,0.4044474773921444
+high,DT without PR3,No correction,ID_CategoryServlet_handleGETRequest,0.6609879985728264
+high,DT without PR3,No correction,ID_ProductServlet_handleGETRequest,0.7497262228735131
+high,DT without PR3,No correction,ID_CartActionServlet_handleGETRequest,0.4688015329274279
+high,DT without PR3,No correction,ID_ProfileServlet_handleGETRequest,0.2853647601764976
