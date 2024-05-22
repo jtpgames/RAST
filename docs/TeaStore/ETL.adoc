@@ -1,11 +1,9 @@
-Clone the `Kieker_ETL` and the 'ML_ETL' project (access to JetBrains Space required):
+Get the `Kieker_ETL` and the 'ML_ETL' submodules by cloning the RAST project:
+* `git clone https://github.com/jtpgames/RAST.git`
 
-`git clone https://git.jetbrains.space/jt-ctl/sim-ml/Kieker_ETL.git`
-`git clone https://git.jetbrains.space/jt-ctl/sim-ml/ML_ETL.git`
+After performing a load test (see xref:Load_Test.adoc[Load Test]), perform the following to convert kieker log files to command log files:
 
-After performing a load test, perform the following to convert kieker log files to command log files:
-
-1. Download logs from `http://<teastore-ip>:8081/logs/`
+1. Download logs (usually a single file with the `.dat` ending) from `http://<teastore-ip>:8081/logs/`
 2. Copy the kieker logs to the `TeaStoreLogs`-folder in the `Kieker_ETL` project (create it, if necessary)
 3. Run `Kieker_ETL`, e.g., by executing `./gradlew run --args='TeaStoreLogs'`
 4. Copy the produced `teastore-cmd_*.log` to the `TeaStoreLogs`-folder to the ML_ETL project (create it, if necessary)

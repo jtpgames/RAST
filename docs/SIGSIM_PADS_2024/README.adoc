@@ -73,12 +73,12 @@ The prediction data as described in the paper was acquired by running a load tes
 
 === Validation data
 The validation data is available in our Datalore notebook <<datalore_notebook>>.
-Acquiring the validation data from TeaStore is a more complex process involving downloading kieker logs, transforming them and storing into an SQLite database. The code and instructions for this are currently not available on GitHub but in a private repository on JetBrains Space. Access is granted for reviewers after requesting it from the main author of the paper.
+Acquiring the validation data from TeaStore is a more complex process involving downloading kieker logs, transforming them and storing into an SQLite database.
+The instructions https://github.com/jtpgames/RAST/blob/main/docs/TeaStore/ETL.adoc[here] explain this process.
+The validation data is acquired in a similar fashion as the prediction data, i.e., running a load test, creating a database and repeating for each load intensity profile. Again, we recommend to take a look at our datalore notebook or the snapshot archive to see the structure.
 
 == Artefact Submission Inventory
 
-* GitHub Repository(https://github.com/jtpgames/Locust_Scripts/tree/PADS2024): Includes the source code and instructions for the RAST Load Tester component.
-* GitHub Repository(https://github.com/jtpgames/Simulators): Includes the source code, predictive models(including models not presented in the paper), and instructions for the RAST Simulator component.
 * Datalore notebook(https://datalore.jetbrains.com/notebook/6K6VkECuLMtN5t5nSYg6WK/TVGp1egwDQlwI19astdVlM): Includes instructions, our measurements and the Python code we use for similarity calculation. To access the datalore notebook (similar to a Jupyter notebook) creation of a free account is required.
 * RAST_TeaStore_Simulation_Similarity.zip: Exported Datalore notebook snapshot 21.05.2024 including Validation Data but excluding Prediction Data for models other than those we mentioned in our paper (the datalore notebook above contains everything).
 * similarity_scores.csv: File created from the ResultComparer Python script found in our Datalore notebook.
