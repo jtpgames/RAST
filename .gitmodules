@@ -7,3 +7,9 @@
 [submodule "Simulators"]
 	path = Simulators
 	url = https://github.com/jtpgames/Simulators
+[submodule "Kieker_ETL"]
+	path = Kieker_ETL
+	url = https://github.com/jtpgames/Kieker_ETL
+[submodule "ML_ETL"]
+	path = ML_ETL
+	url = https://github.com/jtpgames/ML_ETL
