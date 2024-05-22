@@ -1,0 +1,9 @@
+= RAST Reference Implementation
+:toc:
+:icons: font
+
+This repository contains the reference implementation of the components of RAST, divided into separate git submodules:
+
+* locust_scripts: Load Tester
+* Simulators: the Simulator and the predictive models
+

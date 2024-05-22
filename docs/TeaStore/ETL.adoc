@@ -6,8 +6,8 @@ Clone the `Kieker_ETL` and the 'ML_ETL' project (access to JetBrains Space requi
 After performing a load test, perform the following to convert kieker log files to command log files:
 
 1. Download logs from `http://<teastore-ip>:8081/logs/`
-2. Copy the kieker logs to the `TeaStore Logs`-folder in the `Kieker_ETL` project
-3. Run `Kieker_ETL`
-4. Copy the produced `teastore-cmd_*.log` to the ML_ETL project
-5. Convert the command logs using `GSLogConverter.py`
-6. Store everything in the database using `LogToDbETL.py`
+2. Copy the kieker logs to the `TeaStoreLogs`-folder in the `Kieker_ETL` project (create it, if necessary)
+3. Run `Kieker_ETL`, e.g., by executing `./gradlew run --args='TeaStoreLogs'`
+4. Copy the produced `teastore-cmd_*.log` to the `TeaStoreLogs`-folder to the ML_ETL project (create it, if necessary)
+5. Convert the command logs using `GSLogConverter.py`, e.g., by executing `python GSLogToLocustConverter.py -d ../../TeaStoreLogs/`
+6. Store everything in the database using `LogToDbETL.py`, e.g., by executing `python LogToDbETL.py ../../TeaStoreLogs/`

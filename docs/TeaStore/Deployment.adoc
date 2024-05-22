@@ -1,13 +1,13 @@
-### Netdata Installation (optional)
+=== Netdata Installation (optional)
 
 `bash <(curl -Ss https://my-netdata.io/kickstart.sh)`
 
 Change netdata.conf to store 21 days of metrics, according to:
 <https://learn.netdata.cloud/guides/longer-metrics-storage>
 
-### Multipass Docker VM Steps (optional)
+=== Multipass Docker VM Steps (optional)
 
-Create a VM with 6 vCPUs, 8 GB RAM and 100 GB Storage using a cloud-init file for initial setup. After that, copy the docker-compose files and shell scripts, assign execute privileges to the shell scripts and launch the teastore. 
+Create a VM with 6 vCPUs, 8 GB RAM and 100 GB Storage using a cloud-init file for initial setup. After that, copy the docker-compose files and shell scripts, assign execute privileges to the shell scripts and launch the teastore.
 
 * `multipass launch --disk 100G --memory 8G --cpus 6 --name teastore-vm --cloud-init docker-cloud-init-simple.yaml`
 * `multipass shell teastore-vm`
@@ -17,25 +17,25 @@ To remove it:
 * `multipass delete teastore-vm -p` to delete
 * `multipass list` to check success
 
-### Setup TeaStore
-#### Building
+=== Setup TeaStore
+==== Building
 
 1. Clone our TeaStore Fork on GitHub: https://github.com/jtpgames/TeaStore/tree/master
-2. Build the TeaStore application and the associated Docker images according to the instructions here (you can skip steps 1. and 2.): https://github.com/jtpgames/TeaStore/blob/master/GET_STARTED.md#3-building-and-customizing-the-teastore
+2. Build the TeaStore application and the associated Docker images according to the instructions https://github.com/jtpgames/TeaStore/blob/master/GET_STARTED.md#3-building-and-customizing-the-teastore[here] (you can skip steps 1 and 2).
 
-#### Launching
+==== Launching
 
 * `chmod +x launch_teastore.sh`
 * `chmod +x shutdown_teastore.sh`
 * `./launch_teastore.sh`
 * When you are done: `./shutdown_teastore.sh`
 
-#### Verification
+==== Verification
 
 * (in another shell) multipass list to find the ip address, e.g., 192.168.64.6
 * RabbitMQ Dashboard:
-  * <http://192.168.64.6:15672/#/>
-  * admin / nimda
+** <http://192.168.64.6:15672/#/>
+** admin / nimda
 * TeaStore:  <http://192.168.64.6:8080>
 * Kieker logs: <http://192.168.64.6:8081>
 
