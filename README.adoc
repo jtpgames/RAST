@@ -13,4 +13,5 @@ This repository contains the reference implementation of the components of RAST,
 . `cd RAST`
 . `./pull_all_submodules.sh`
 
-
+== Reproduction Instructions for Conferences
+* xref:docs/SIGSIM_PADS_2024/README.adoc[SIGSIM PADS 2024]
