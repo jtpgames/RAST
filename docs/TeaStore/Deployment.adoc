@@ -21,7 +21,7 @@ To remove it:
 ==== Building
 
 1. Clone our TeaStore Fork on GitHub: https://github.com/jtpgames/TeaStore/tree/master or use the submodule in this repository (`git clone https://github.com/jtpgames/RAST.git`).
-2. Build the TeaStore application and the associated Docker images according to the instructions https://github.com/jtpgames/TeaStore/blob/master/GET_STARTED.md#3-building-and-customizing-the-teastore[here] (you can skip steps 1 and 2).
+2. Build the TeaStore application and the associated Docker images according to the instructions https://github.com/jtpgames/TeaStore/blob/master/GET_STARTED.md#3-building-and-customizing-the-teastore[3. Building and Customizing the TeaStore] (you can skip steps 1 and 2).
 
 ==== Launching
 
