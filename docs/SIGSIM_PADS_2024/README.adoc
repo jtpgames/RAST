@@ -80,7 +80,7 @@ The validation data is acquired in a similar fashion as the prediction data, i.e
 == Artefact Submission Inventory
 
 * Datalore notebook(https://datalore.jetbrains.com/notebook/6K6VkECuLMtN5t5nSYg6WK/TVGp1egwDQlwI19astdVlM): Includes instructions, our measurements and the Python code we use for similarity calculation. To access the datalore notebook (similar to a Jupyter notebook) creation of a free account is required.
-* RAST_TeaStore_Simulation_Similarity.zip: Exported Datalore notebook snapshot 21.05.2024 including Validation Data but excluding Prediction Data for models other than those we mentioned in our paper (the datalore notebook above contains everything).
+* RAST_TeaStore_Simulation_Similarity.zip: Exported Datalore notebook snapshot 21.05.2024. The folder `TeaStoreResultComparisonData` includes both the Validation Data and Prediction Data we used in our paper (the datalore notebook above contains a greater set of Prediction Data for models we did not mention in our paper).
 * similarity_scores.csv: File created from the ResultComparer Python script found in our Datalore notebook.
 * similarity_scores.ods: File created from the similarity_scores.csv file using LibreOffice. Includes all formulaes to assess the experimental results as well as the figures found in the paper. Also includes results and figures not found in the paper.
 * Figures: Includes all figures generated using the similarity_scores.ods file.
