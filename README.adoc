@@ -5,11 +5,14 @@
 This repository contains the reference implementation of the components of RAST, divided into separate git submodules:
 
 * locust_scripts: Includes the source code and instructions for the RAST Load Tester component. (RAST Load Tester component)
-* TeaStore: Fork of the TeaStore benchmarking application adapting for our experiments. (Case Study)
 * Simulators: Includes the source code, predictive models, and instructions for the RAST Simulator component. (RAST Simulator component)
 * Kieker_ETL: Includes the source code to transform log files from TeaStore to our common log format. (Partial Log Transformer component)
 * ML_ETL: Includes the source code to transform log files in different formats to our common log format, process and extract feature variables, and create an SQLite database representing training data for the Predictive Model Creator component or Validation Data for Similarity Comparison. (Log Transformer component)
 * Regression-Analysis_Workload-Characterization: Includes the source code for creating predictive models from training data, performing workload characterizations and other scripts currently work in progress. (Predictive Model Creator component)
+
+Also, contains the additional modules:
+* Automations: Includes various scripts for automating processes, like running load tests against the Simulator.
+* TeaStore: Fork of the TeaStore benchmarking application adapting for our experiments. (Case Study)
 
 == Cloning
 * Clone this repository. Make sure, to pull all git submodels as well:
