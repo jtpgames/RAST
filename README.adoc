@@ -10,8 +10,9 @@ This repository contains the reference implementation of the components of RAST,
 * ML_ETL: Includes the source code to transform log files in different formats to our common log format, process and extract feature variables, and create an SQLite database representing training data for the Predictive Model Creator component or Validation Data for Similarity Comparison. (Log Transformer component)
 * Regression-Analysis_Workload-Characterization: Includes the source code for creating predictive models from training data, performing workload characterizations and other scripts currently work in progress. (Predictive Model Creator component)
 
-Also, contains the additional modules:
-* Automations: Includes various scripts for automating processes, like running load tests against the Simulator.
+Also, contains additional modules:
+
+* Automations: Includes various scripts for automating processes, like running load tests against the Simulator or TeaStore. These are used to help with generating training or validation data.
 * TeaStore: Fork of the TeaStore benchmarking application adapting for our experiments. (Case Study)
 
 == Cloning

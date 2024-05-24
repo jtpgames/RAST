@@ -3,12 +3,17 @@ Get the `Kieker_ETL` and the 'ML_ETL' submodules by cloning the RAST project:
 
 After performing a load test (see xref:Load_Test.adoc[Load Test]), perform the following to convert kieker log files to command log files:
 
-1. Download logs (usually a single file with the `.dat` ending) from `http://<teastore-ip>:8081/logs/` (Figs. 1-3)
-2. Copy the kieker logs to the `TeaStoreLogs`-folder in the `Kieker_ETL` project (create it, if necessary)
-3. Run `Kieker_ETL`, e.g., by executing `./gradlew run --args='TeaStoreLogs'`. The resulting `.log` files are created in the same folder as the kieker logs.
-4. Copy the produced `teastore-cmd_*.log` to the `TeaStoreLogs`-folder to the ML_ETL project (create it, if necessary)
-5. Convert the command logs using `GSLogConverter.py`, e.g., by executing `python GSLogToLocustConverter.py -d ../../TeaStoreLogs/`. The converted logs are created in the same directory.
-6. Store everything in the database using `LogToDbETL.py`, e.g., by executing `python LogToDbETL.py ../../TeaStoreLogs/`. The resulting database file is an SQLite Database file and is placed in the `db` folder in the `ML_ETL` project.
+. Download logs (usually a single file with the `.dat` ending) from `http://<teastore-ip>:8081/logs/` (Figs. 1-3)
+. Copy the kieker logs to the `TeaStoreLogs`-folder in the `Kieker_ETL` project (create it, if necessary)
+. Run `Kieker_ETL`, e.g., by executing `./gradlew run --args='TeaStoreLogs'`. The resulting `.log` files are created in the same folder as the kieker logs.
+. Copy the produced `teastore-cmd_*.log` to the `TeaStoreLogs`-folder to the ML_ETL project (create it, if necessary). Example: `mv teastore-cmd_2024-05-24.log ../../ML_ETL/TeaStoreLogs/`
+. (Optional) Create a python virtual environment and install dependencies:
+.. `python3 -m venv venv`
+.. `source venv/bin/activate`
+.. `pip install -r requirements.txt`
+. `cd GS/Logfiles/`
+. Convert the command logs using `GSLogConverter.py`, e.g., by executing `python GSLogToLocustConverter.py -d ../../TeaStoreLogs/`. The converted logs are created in the same directory.
+. Store everything in the database using `LogToDbETL.py`, e.g., by executing `python LogToDbETL.py ../../TeaStoreLogs/`. The resulting database file is an SQLite Database file and is placed in the `db` folder in the `ML_ETL` project.
 
 :imagesdir: Images
 

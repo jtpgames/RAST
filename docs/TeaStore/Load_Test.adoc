@@ -1,2 +1,2 @@
-1. `cd Locust_Scripts`
+1. `cd locust_scripts`
 2. `./start_teastore_loadtest.sh`
