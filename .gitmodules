@@ -1,18 +1,24 @@
 [submodule "locust_scripts"]
 	path = locust_scripts
 	url = https://github.com/jtpgames/Locust_Scripts
+	branch = main
 [submodule "TeaStore"]
 	path = TeaStore
 	url = https://github.com/jtpgames/TeaStore
+	branch = master
 [submodule "Simulators"]
 	path = Simulators
 	url = https://github.com/jtpgames/Simulators
+	branch = main
 [submodule "Kieker_ETL"]
 	path = Kieker_ETL
 	url = https://github.com/jtpgames/Kieker_ETL
+	branch = main
 [submodule "ML_ETL"]
 	path = ML_ETL
 	url = https://github.com/jtpgames/ML_ETL
+	branch = main
 [submodule "Regression-Analysis_Workload-Characterization"]
 	path = Regression-Analysis_Workload-Characterization
 	url = https://github.com/jtpgames/Regression-Analysis_Workload-Characterization
+	branch = main
