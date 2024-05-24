@@ -21,5 +21,16 @@ Also, contains additional modules:
 . `cd RAST`
 . `./pull_all_submodules.sh`
 
+== Recommendations
+We recommend to work with python virtual environments in all python projects. Some of the scripts in the Automation module create and use virtual environments, but not all of them. Here are the manual steps to create a virtual environment, activate it, and install dependencies:
+
+[source]
+----
+python3 -m venv venv
+source venv/bin/activate
+pip install wheel
+pip install -r requirements.txt
+----
+
 == Reproduction Instructions for Conferences
 * xref:docs/SIGSIM_PADS_2024/README.adoc[SIGSIM PADS 2024]
