@@ -23,13 +23,14 @@ To conduct the experiments outlined in this paper, please follow the step-by-ste
 === System requirements
 * Linux operating system (we tested with Ubuntu 22.04)
 
-Packages to install (`sudo apt-get install X`):
+Packages to install (`sudo apt-get install X` where `X` is the name of the following packages):
 
 * git,
 * docker-compose,
 * python3.10-venv,
-* python3-dev,
-* openjdk-11-jre-headless
+* python3.10-dev,
+* openjdk-11-jre-headless,
+* screen
 
 === Preparations
 
