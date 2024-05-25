@@ -1,1 +1,4 @@
-git submodule update --init --recursive --remote --merge
+#!/bin/bash
+
+git submodule update --init --recursive
+
