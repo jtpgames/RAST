@@ -17,9 +17,11 @@ Also, contains additional modules:
 
 == Cloning
 * Clone this repository. Make sure, to pull all git submodels as well:
-. `git clone https://github.com/jtpgames/RAST.git`
-. `cd RAST`
-. `./pull_all_submodules.sh`
+
+[source]
+----
+git clone https://github.com/jtpgames/RAST.git && cd RAST && ./pull_all_submodules.sh
+----
 
 == Recommendations
 We recommend to work with python virtual environments in all python projects. Some of the scripts in the Automation module create and use virtual environments, but not all of them. Here are the manual steps to create a virtual environment, activate it, and install dependencies:
