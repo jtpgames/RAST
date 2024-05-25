@@ -50,10 +50,16 @@ Packages to install (`sudo apt-get install X` where `X` is the name of the follo
 ** `cd ../`
 . Create Training data for the predictive model component:
 ** `cd Training_Data`
-** `./launch_loadtest.sh`
+** `./launch_all.sh` and wait for the script to finish.
 ** Download the log files and create a training database according to the instructions in xref:../TeaStore/ETL.adoc[ETL].
 ** Follow the instructions in the xref:../../Regression-Analysis_Workload-Characterization/ReadMe.md[README of Regression-Analysis_Workload-Characterization] to create predictive models from this database.
 ** Copy the resulting models to the Simulator component and use them according to the instructions in the xref:../../Simulators/README.md[README of Simulators].
+. Create Prediction data for Similarity Comparison:
+** `cd Prediction_Data`
+** `.launch_teastore_loadtest.sh` and follow the instructions printed in the terminal, like downloading the logs from TeaStore between each load test execution.
+** After the script finished, you should have downloaded four different log files with the .dat file ending. We recommend naming each file according to the load intensity profile that produced that.
+** You need to create a database for each log file individually. Follow the instructions in xref:../TeaStore/ETL.adoc[ETL].
+** When you are done, you should have four databases, one for each load intensity profile.
 . Create Validation data for Similarity Comparison:
 ** `cd Validation_Data`
 ** (Optional) Set the model the Simulator should use:

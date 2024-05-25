@@ -1,6 +1,19 @@
 #!/bin/bash
 
 PROFILES="low low_2 med high"
+run_all_test='false'
+
+while getopts :a flag
+do
+    case "${flag}" in
+        a) run_all_test='true';;
+    esac
+done
+
+case $run_all_test in
+  (true)    echo "Running all load intensity profiles without stops";;
+  (false)   echo "Running all load intensity profiles but stopping between each";;
+esac
 
 # move to automations folder
 cd ../
@@ -80,12 +93,31 @@ for profile in $PROFILES; do
       exit 1
   fi
 
-  export KEEP_TEASTORE_LOGS=True
+  case $run_all_test in
+    (true)
+    echo "Keeping teastore logs between tests"
+    export KEEP_TEASTORE_LOGS=True
+    ;;
+  esac
+
   export LOAD_INTENSITY_PROFILE=$profile
   ./start_teastore_loadtest.sh
 
-  echo "*** Starting next load test in 30 seconds\n"
-  sleep 30
+  case $run_all_test in
+    (true)
+    echo "*** Starting next load test in 30 seconds\n"
+    sleep 30
+    ;;
+    (false)
+    echo "*** Load test finished. Download the logfiles before continuing\”"
+    echo "*** Navigate to http://localhost:8081/logs/index to download them\n"
+    echo "Press any key to continue..."
+
+    # -s: Do not echo input coming from a terminal
+    # -n 1: Read one character
+    read -s -n 1
+    ;;
+  esac
 
   # move back to root folder
   cd ../
