@@ -54,6 +54,14 @@ Packages to install (`sudo apt-get install X` where `X` is the name of the follo
 ** Download the log files and create a training database according to the instructions in xref:../TeaStore/ETL.adoc[ETL].
 ** Follow the instructions in the xref:../../Regression-Analysis_Workload-Characterization/ReadMe.md[README of Regression-Analysis_Workload-Characterization] to create predictive models from this database.
 ** Copy the resulting models to the Simulator component and use them according to the instructions in the xref:../../Simulators/README.md[README of Simulators].
+. Create Validation data for Similarity Comparison:
+** `cd Validation_Data`
+** (Optional) Set the model the Simulator should use:
+*** If you want Decision Tree Regression, use `model="teastore_model_DT_T-PR_1_3" model_number_in_simulator=0`
+*** If you want Ridge Regression, use `model="teastore_model_Ridge_T_PR_1_3" model_number_in_simulator=1`
+** (Optional) Set the maximum number of correction loop iterations: `corr_max_value=0` or `corr_max_value=1`.
+** `./launch_all.sh`
+** After the script finishes, the resulting log files are located in the Simulators project. The folder is named after the predictive model that the simulator used and an additional subfolder for the value of corr_max.
 
 ==== Manual
 Recommended workflow (for terminal users):
