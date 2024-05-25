@@ -18,59 +18,129 @@ We created a GitHub fork <<teastore_fork>> and modified some parameters of their
 Additional experimental results not published in our paper, including the Python scripts we use for similarity calculation and the validation and prediction data acquired in our experiments, can be accessed in our Datalore notebook <<datalore_notebook>>.
 
 == Instructions for Conducting Experiments
+
 To conduct the experiments outlined in this paper, please follow the step-by-step instructions below:
 
-=== System requirements
+=== System Requirements
+
 * Linux operating system (we tested with Ubuntu 22.04)
 
-Packages to install (`sudo apt-get install X` where `X` is the name of the following packages):
+Packages to install (use `sudo apt-get install X` where `X` is the name of the following packages):
 
-* git,
-* docker-compose,
-* python3.10-venv,
-* python3.10-dev,
-* openjdk-11-jre-headless,
+* git
+* docker-compose
+* python3.10-venv
+* python3.10-dev
+* openjdk-11-jre-headless
 * screen
-
-=== Preparations
-
-* Setup TeaStore according to the https://github.com/jtpgames/RAST/blob/main/docs/TeaStore/Deployment.adoc#setup-teastore[instructions].
-* Clone this repository. Make sure, to pull all git submodels as well:
-    . `git clone https://github.com/jtpgames/RAST.git`
-    . `cd RAST`
-    . `./pull_all_submodules.sh`
 
 === Workflow
 
 ==== Automated
-. Navigate to the Automations module `cd Automations`
-. Setup TeaStore on your local machine:
-** `cd Setup_TeaStore`
-** `./setup.sh`
-** `cd ../`
+
+. Navigate to the Automations module:
++
+[source,sh]
+----
+cd <RAST directory>/Automations
+----
+. Set up TeaStore on your local machine:
++
+[source,sh]
+----
+cd Setup_TeaStore
+./setup.sh
+----
 . Create Training data for the predictive model component:
-** `cd Training_Data`
-** `./launch_all.sh` and wait for the script to finish.
++
+[source,sh]
+----
+cd Training_Data
+./launch_all.sh
+----
++
+Wait for the script to finish.
++
 ** Download the log files and create a training database according to the instructions in xref:../TeaStore/ETL.adoc[ETL].
 ** Follow the instructions in the xref:../../Regression-Analysis_Workload-Characterization/ReadMe.md[README of Regression-Analysis_Workload-Characterization] to create predictive models from this database.
 ** Copy the resulting models to the Simulator component and use them according to the instructions in the xref:../../Simulators/README.md[README of Simulators].
 . Create Prediction data for Similarity Comparison:
-** `cd Prediction_Data`
-** `.launch_teastore_loadtest.sh` and follow the instructions printed in the terminal, like downloading the logs from TeaStore between each load test execution.
-** After the script finished, you should have downloaded four different log files with the .dat file ending. We recommend naming each file according to the load intensity profile that produced that.
++
+[source,sh]
+----
+cd Prediction_Data
+.launch_teastore_loadtest.sh
+----
++
+Follow the instructions printed in the terminal, like downloading the logs from TeaStore between each load test execution.
++
+** After the script finishes, you should have downloaded four different log files with the `.dat` file extension. We recommend naming each file according to the load intensity profile that produced it.
 ** You need to create a database for each log file individually. Follow the instructions in xref:../TeaStore/ETL.adoc[ETL].
 ** When you are done, you should have four databases, one for each load intensity profile.
 . Create Validation data for Similarity Comparison:
-** `cd Validation_Data`
++
+[source,sh]
+----
+cd Validation_Data
+----
++
 ** (Optional) Set the model the Simulator should use:
-*** If you want Decision Tree Regression, use `model="teastore_model_DT_T-PR_1_3" model_number_in_simulator=0`
-*** If you want Ridge Regression, use `model="teastore_model_Ridge_T_PR_1_3" model_number_in_simulator=1`
-** (Optional) Set the maximum number of correction loop iterations: `corr_max_value=0` or `corr_max_value=1`.
-** `./launch_all.sh`
-** After the script finishes, the resulting log files are located in the Simulators project. The folder is named after the predictive model that the simulator used and an additional subfolder for the value of corr_max.
++
+open the `launch_all.sh` file and locate the variables `model` and `model_number_in_simulator`.
++
+*** If you want Decision Tree Regression, use:
++
+[source,sh]
+----
+model="teastore_model_DT_T-PR_1_3"
+model_number_in_simulator=0
+----
+*** If you want Ridge Regression, use:
++
+[source,sh]
+----
+model="teastore_model_Ridge_T_PR_1_3"
+model_number_in_simulator=1
+----
++
+** (Optional) Set the maximum number of correction loop iterations:
++
+open the `launch_all.sh` file and locate the variable `corr_max_value`.
++
+[source,sh]
+----
+corr_max_value=0
+----
+or
++
+[source,sh]
+----
+corr_max_value=1
+----
+** Launch all load tests:
++
+[source,sh]
+----
+./launch_all.sh
+----
++
+After the script finishes, the resulting log files are located in the Simulators project. The folder is named after the predictive model that the simulator used and has an additional subfolder for the value of `corr_max`.
 
 ==== Manual
-Recommended workflow (for terminal users):
+
+==== Preparations
+
+* Set up TeaStore according to the https://github.com/jtpgames/RAST/blob/main/docs/TeaStore/Deployment.adoc#setup-teastore[instructions].
+* Clone this repository. Make sure to pull all git submodules as well:
++
+[source,sh]
+----
+git clone https://github.com/jtpgames/RAST.git
+cd RAST
+./pull_all_submodules.sh
+----
+
+==== Instructions
 
 . Open your terminal and use a terminal multiplexer such as tmux to create four sessions. We will refer to these sessions by numbers:
     * Session (1): This session will be used to start the TeaStore or the Simulator. Navigate to the respective folder within the cloned repositories.
