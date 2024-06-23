@@ -27,11 +27,14 @@ To conduct the experiments outlined in this paper, please follow the step-by-ste
 
 Packages to install (use `sudo apt-get install X` where `X` is the name of the following packages):
 
+* curl
 * git
-* docker-compose
+* docker-compose (we used version 1.29.2)
+* docker (we used version 26.1.4)
 * python3.10-venv
 * python3.10-dev
 * openjdk-11-jre-headless
+* maven (we used version 3.6.3)
 * screen
 
 === Workflow
