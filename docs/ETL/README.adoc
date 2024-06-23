@@ -1,0 +1,172 @@
+= Extract-Transform-Load Implementations for RAST
+:toc:
+//:icons: font
+:xrefstyle: short
+
+:imagesdir: ../Images
+
+The https://github.com/jtpgames/ML_ETL[ML_ETL] project consists of a series of Python scripts that implement the Log-Transformer component of RAST. The Log-Transformer's goal is to convert request logs (or other types of logs in various formats) into a Common Log Format, which is then loaded into a training database. This training database is subsequently used by the Predictive-Model-Creator component of RAST.
+
+To facilitate the integration of other software systems that use different log formats (see <<_logs_from_other_systems>>), we differentiate between two types of log formats: <<_request_log_format>> and <<_common_log_format>>. Refer to <<etl-1-svg>> to see the three classes of server programs we define:
+
+* **SP1:** Server programs that produce request logs but have bugs or issues in their logging systems, resulting in "Broken Logs." In this case, you need a "LogFixer" program to correct these logs. An example is provided in https://github.com/jtpgames/ML_ETL/blob/main/GS/Logfiles/WSLogFixer.py[WSLogFixer.py].
+* **SP2:** Server programs that use different types or formats for their logs, resulting in "differently formatted logs." Here, a "LogConverter" program is required to transform these logs into our <<_request_log_format>>.
+* **SP3:** Server programs that use our <<_request_log_format>> and produce "Correct Logs."
+
+Following this, the https://github.com/jtpgames/ML_ETL/blob/main/GS/Logfiles/LogMerger.py[LogMerger] program is responsible for merging the request logs produced by different server programs into "Merged Logs."
+
+The "Merged Logs" in our <<_request_log_format>> are then converted by the https://github.com/jtpgames/ML_ETL/blob/main/GS/Logfiles/GSLogToLocustConverter.py[GSLogToLocustConverter.py] script into "Converted Logs" in our <<_common_log_format>>.
+
+.From different classes of server programs to merged logs
+[#etl-1-svg]
+image::GS ETL 1.svg[]
+
+.From merged logs to training database
+[#etl-2-svg]
+image::GS ETL 2.svg[]
+
+== Repurpose Instructions
+
+[#_logs_from_other_systems]
+=== Logs from Other Systems
+
+Logs from other systems are classified as SP2 server programs (<<etl-1-svg>>).
+To integrate their logs into RAST, implement a LogConverter that reads the system-specific logs and transforms them into the <<_request_log_format>>. Once transformed, you can use the https://github.com/jtpgames/ML_ETL/blob/main/GS/Logfiles/GSLogToLocustConverter.py[GSLogToLocustConverter.py] script to convert these logs to the <<_common_log_format>>.
+
+The programming language you use for the converters is not relevant. The ML_ETL project contains a few converters implemented in the Python programming language.
+Additionally, the Kieker_ETL project contains a LogConverter implemented in the Kotlin programming language for the TeaStore benchmarking application. <<teastore-etl-svg>> illustrates the logs and programs involved to convert system-specific logs from TeaStore "Kieker Logs" first to our <<_request_log_format>> and then we reuse the existing programs to convert and load the data into the training database.
+
+.From TeaStore to training data
+[#teastore-etl-svg]
+image::RAST-TeaStore ETL.svg[]
+
+=== Training Database
+
+CAUTION: Changing the <<_schema>> of the database requires knowledge of the SQLAlchemy library and is not straightforward.
+
+Because the training database is accessed in two different projects, we have moved the shared code into our own https://github.com/jtpgames/RAST-Common-Python[RAST-Common-Python library]. The https://github.com/jtpgames/RAST-Common-Python/blob/master/src/rast_common/main/TrainingDatabase.py[TrainingDatabase class] contains the database entity. We use a simple versioning mechanism to ensure backward compatibility.
+
+To modify the entity, such as adding a new column to the database, follow these steps:
+
+1. Add a new version to the https://github.com/jtpgames/RAST-Common-Python/blob/master/src/rast_common/Version.py#L4[TrainingDataEntityVersion Enum class].
+2. Create a new entity class. Refer to the existing `TrainingDataEntity` classes as a guide.
+3. Extend the `TrainingDataRow` class, which serves as a Data Transfer Object (DTO).
+
+Depending on your specific changes, you may also need to adjust the following functions:
+
+- `insert_training_data`
+- `read_all_training_data_from_db_using_sqlalchemy`
+- `read_training_data_from_db_between_using_sqlalchemy`
+
+== Log formats
+
+[#_request_log_format]
+=== Request Log Format
+Request logs, also known as access logs, provide basic information about a request's arrival time, completion time (or response sending time), and the type of request. Unlike more sophisticated log formats, request logs have a simple structure, but this structure is not consistently defined in the literature. Different software systems may use slightly different formats for request logs. Here, we present our specific request log format. The relevant parts of our format are illustrated in <<log-entry-svg>>, and a few example logs are shown in <<example-teastore-request-log>>.
+
+.Structure of a request log (Example Log from our GS Alarm System Case Study)
+[#log-entry-svg]
+image::log-entry.svg[]
+
+.Example Log from our TeaStore Case Study
+[#example-teastore-request-log]
+[%collapsible]
+====
+[source]
+----
+[984684588]   2023-07-17 18:58:55.407  CMD-START  ID_IndexServlet_handleGETRequest
+[984684588]   2023-07-17 18:58:56.902  CMD-ENDE   ID_IndexServlet_handleGETRequest
+[820464098]   2023-07-17 18:58:57.024  CMD-START  ID_LoginServlet_handleGETRequest
+[820464098]   2023-07-17 18:58:57.401  CMD-ENDE   ID_LoginServlet_handleGETRequest
+[-2081161849] 2023-07-17 18:58:57.503  CMD-START  ID_ProductServlet_handleGETRequest
+[461274357]   2023-07-17 18:58:57.520  CMD-START  ID_CategoryServlet_handleGETRequest
+[-2081161849] 2023-07-17 18:58:58.435  CMD-ENDE   ID_ProductServlet_handleGETRequest
+[461274357]   2023-07-17 18:58:58.439  CMD-ENDE   ID_CategoryServlet_handleGETRequest
+----
+====
+
+[#_common_log_format]
+=== Common Log Format
+The Common Log Format refers to the target format to transform request logs to. It includes the extracted and calculated predictor variables required by RAST's Predictive-Model-Creator component.
+
+.Example Log (converted from the request log shown above) from our TeaStore Case Study
+[%collapsible]
+====
+[source]
+----
+[2023-07-17 18:58:56,902000] (PR:  0/ 1/ 0) ID_IndexServlet_handleGETRequest   : Response time 1495 ms
+[2023-07-17 18:58:57,401000] (PR:  0/ 1/ 0) ID_LoginServlet_handleGETRequest   : Response time 377 ms
+[2023-07-17 18:58:58,435000] (PR:  0/ 2/ 0) ID_ProductServlet_handleGETRequest : Response time 932 ms
+[2023-07-17 18:58:58,439000] (PR:  1/ 1/ 1) ID_CategoryServlet_handleGETRequest: Response time 919 ms
+----
+====
+
+== Training Database
+
+The https://github.com/jtpgames/ML_ETL/blob/main/GS/Logfiles/LogToDbETL.py[LogToDbETL.py] script creates an SQLite database and inserts the contents of logs that are in the <<_common_log_format>>.
+
+The <<_initial_schema>> schema represents the current, stable schema mentioned in our publications and experiments. Since then, extensions have been implemented, but these extensions are still experimental and have not yet been discussed in newer publications.
+
+[#_schema]
+=== Schema
+
+[#_initial_schema]
+=== Initial
+
+.Create Table statement for SQLite
+[source,sql]
+----
+CREATE TABLE training_data (
+    id INTEGER NOT NULL,
+    timestamp TIMESTAMP NOT NULL,
+    number_of_parallel_requests_start SMALLINT NOT NULL,
+    number_of_parallel_requests_end SMALLINT NOT NULL,
+    number_of_parallel_requests_finished SMALLINT NOT NULL,
+    request_type VARCHAR NOT NULL,
+    request_execution_time_ms INTEGER NOT NULL,
+    PRIMARY KEY (id)
+)
+----
+
+==== Version 1
+
+.Create Table statement for SQLite
+[source,sql]
+----
+CREATE TABLE training_data (
+    id INTEGER NOT NULL,
+    timestamp TIMESTAMP NOT NULL,
+    number_of_parallel_requests_start SMALLINT NOT NULL,
+    number_of_parallel_requests_end SMALLINT NOT NULL,
+    number_of_parallel_requests_finished SMALLINT NOT NULL,
+    request_type VARCHAR NOT NULL,
+    system_cpu_usage FLOAT NOT NULL,
+    requests_per_second INTEGER NOT NULL,
+    requests_per_minute INTEGER NOT NULL,
+    request_execution_time_ms INTEGER NOT NULL,
+    PRIMARY KEY (id)
+)
+----
+
+==== Version 2
+
+.Create Table statement for SQLite
+[source, sql]
+----
+CREATE TABLE training_data (
+    id INTEGER NOT NULL,
+    timestamp TIMESTAMP NOT NULL,
+    number_of_parallel_requests_start SMALLINT NOT NULL,
+    number_of_parallel_requests_end SMALLINT NOT NULL,
+    number_of_parallel_requests_finished SMALLINT NOT NULL,
+    request_type VARCHAR NOT NULL,
+    system_cpu_usage FLOAT NOT NULL,
+    requests_per_second INTEGER NOT NULL,
+    requests_per_minute INTEGER NOT NULL,
+    switch_id INTEGER NOT NULL,
+    bytes_per_second_transmitted_through_switch INTEGER NOT NULL,
+    packets_per_second_transmitted_through_switch INTEGER NOT NULL,
+    request_execution_time_ms INTEGER NOT NULL,
+    PRIMARY KEY (id)
+)
+----
