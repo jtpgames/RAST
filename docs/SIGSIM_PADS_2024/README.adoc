@@ -23,7 +23,11 @@ To conduct the experiments outlined in this paper, please follow the step-by-ste
 
 === System Requirements
 
-* Linux operating system (we tested with Ubuntu 22.04)
+The hardware/software configuration used by the authors is:
+
+* CPU: Intel® Core™ i5-1135G7 @ 2.40GHz × 8
+* RAM: 16GB
+* OS: Ubuntu 22.04.4 LTS (Jammy Jellyfish) 64-bit
 
 Packages to install (use `sudo apt-get install X` where `X` is the name of the following packages):
 
