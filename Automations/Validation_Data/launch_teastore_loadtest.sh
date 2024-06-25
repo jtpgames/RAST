@@ -3,6 +3,8 @@
 PROFILES="low low_2 med high"
 run_all_test='false'
 
+START_TIME="$(date +"%FT%T")"
+
 while getopts :a flag
 do
     case "${flag}" in
@@ -11,8 +13,8 @@ do
 done
 
 case $run_all_test in
-  (true)    echo "Running all load intensity profiles without stops";;
-  (false)   echo "Running all load intensity profiles but stopping between each";;
+  (true)    echo "Running all load intensity profiles without stops (Producing Training Data)";;
+  (false)   echo "Running all load intensity profiles but stopping between each (Producing Validation Data)";;
 esac
 
 # move to automations folder
@@ -50,6 +52,9 @@ curl "localhost:8080/tools.descartes.teastore.webui/"
 curl "localhost:8080/tools.descartes.teastore.webui/login"
 curl "localhost:8080/tools.descartes.teastore.webui/category?category=2&page=1"
 curl "localhost:8080/tools.descartes.teastore.webui/product?id=7"
+
+# reset logs so that the following logs only contain request logs from requests caused by the load test.
+curl "localhost:8081/logs/reset"
 
 # move to root folder
 cd ../
@@ -113,9 +118,14 @@ for profile in $PROFILES; do
     echo "*** Navigate to http://localhost:8081/logs/index to download them\n"
     echo "Press any key to continue..."
 
+    target_directory="../Automations/Validation_Data/Kieker_logs_${START_TIME}"
+    wget http://localhost:8081/logs/ -A *.dat -r -nH -P "${target_directory}"
+    find "${target_directory}" -type f -name '*-UTC-*.dat' -print0 | xargs --null -I{} mv {} "${target_directory}/teastore_kieker-${profile}-intensity.dat"
+    rm -rf "${target_directory}/logs"
+
     # -s: Do not echo input coming from a terminal
     # -n 1: Read one character
-    read -s -n 1
+#    read -s -n 1
     ;;
   esac
 
@@ -131,8 +141,19 @@ echo "Press any key to continue..."
 
 # -s: Do not echo input coming from a terminal
 # -n 1: Read one character
-read -s -n 1
+#read -s -n 1
 
 cd Automations
+
+case $run_all_test in
+  (true)
+  target_directory="Training_Data/Kieker_logs_${START_TIME}"
+  profile="low-to-high"
+  wget http://localhost:8081/logs/ -A *.dat -r -nH -P "${target_directory}"
+  find "${target_directory}" -type f -name '*-UTC-*.dat' -print0 | xargs --null -I{} mv {} "${target_directory}/teastore_kieker-${profile}-intensity.dat"
+  rm -rf "${target_directory}/logs"
+  ;;
+esac
+
 source venv/bin/activate
 ./shutdown_teastore.sh

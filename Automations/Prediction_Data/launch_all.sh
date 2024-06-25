@@ -3,9 +3,9 @@
 PROFILES="low low_2 med high"
 #model="teastore_model_DT_T-PR_1_3"
 #model_number_in_simulator=0
-model="teastore_model_Ridge_T_PR_1_3"
-model_number_in_simulator=1
-corr_max_value=0
+#model="teastore_model_Ridge_T_PR_1_3"
+#model_number_in_simulator=1
+#corr_max_value=0
 
 # move to root folder
 cd ../../

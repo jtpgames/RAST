@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ../Prediction_Data
+cd ../Validation_Data
 ./launch_teastore_loadtest.sh -a
