@@ -68,66 +68,29 @@ cd Training_Data
 +
 Wait for the script to finish.
 +
-** Download the log files and create a training database according to the instructions in xref:../TeaStore/ETL.adoc[ETL].
+** The log file will be downloaded automatically in the folder `Training_Data/Kieker_logs_<timestamp>`.
+** Create a training database according to the instructions in xref:../TeaStore/ETL.adoc[ETL].
 ** Follow the instructions in the xref:../../Regression-Analysis_Workload-Characterization/ReadMe.md[README of Regression-Analysis_Workload-Characterization] to create predictive models from this database.
 ** Copy the resulting models to the Simulator component and use them according to the instructions in the xref:../../Simulators/README.md[README of Simulators].
-. Create Prediction data for Similarity Comparison:
-+
-[source,sh]
-----
-cd Prediction_Data
-.launch_teastore_loadtest.sh
-----
-+
-Follow the instructions printed in the terminal, like downloading the logs from TeaStore between each load test execution.
-+
-** After the script finishes, you should have downloaded four different log files with the `.dat` file extension. We recommend naming each file according to the load intensity profile that produced it.
-** You need to create a database for each log file individually. Follow the instructions in xref:../TeaStore/ETL.adoc[ETL].
-** When you are done, you should have four databases, one for each load intensity profile.
 . Create Validation data for Similarity Comparison:
 +
 [source,sh]
 ----
 cd Validation_Data
+./launch_teastore_loadtest.sh
 ----
 +
-** (Optional) Set the model the Simulator should use:
+Wait for the script to finish.
 +
-open the `launch_all.sh` file and locate the variables `model` and `model_number_in_simulator`.
-+
-*** If you want Decision Tree Regression, use:
-+
-[source,sh]
-----
-model="teastore_model_DT_T-PR_1_3"
-model_number_in_simulator=0
-----
-*** If you want Ridge Regression, use:
+** The log files will be downloaded automatically in the folder `Validation_Data/Kieker_logs_<timestamp>`.
+** The folder should contain four different log files with the `.dat` file extension.
+** You need to create a database for each log file individually. Follow the instructions in xref:../TeaStore/ETL.adoc[ETL].
+** When you are done, you should have four databases, one for each load intensity profile.
+. Create Prediction data for Similarity Comparison:
 +
 [source,sh]
 ----
-model="teastore_model_Ridge_T_PR_1_3"
-model_number_in_simulator=1
-----
-+
-** (Optional) Set the maximum number of correction loop iterations:
-+
-open the `launch_all.sh` file and locate the variable `corr_max_value`.
-+
-[source,sh]
-----
-corr_max_value=0
-----
-or
-+
-[source,sh]
-----
-corr_max_value=1
-----
-** Launch all load tests:
-+
-[source,sh]
-----
+cd Prediction_Data
 ./launch_all.sh
 ----
 +
