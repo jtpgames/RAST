@@ -69,8 +69,14 @@ cd Training_Data
 Wait for the script to finish.
 +
 ** The log file will be downloaded automatically in the folder `Training_Data/Kieker_logs_<timestamp>`.
-** Create a training database according to the instructions in xref:../TeaStore/ETL.adoc[ETL].
-** Follow the instructions in the xref:../../Regression-Analysis_Workload-Characterization/ReadMe.md[README of Regression-Analysis_Workload-Characterization] to create predictive models from this database.
+** Create predictive models:
++
+[source,sh]
+----
+./create_predictive_model.sh
+----
++
+** Wait for the script to finish. You will find the predictive models in the folder `Predictive_Models`.
 ** Copy the resulting models to the Simulator component and use them according to the instructions in the xref:../../Simulators/README.md[README of Simulators].
 . Create Validation data for Similarity Comparison:
 +
