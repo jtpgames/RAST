@@ -120,7 +120,10 @@ for profile in $PROFILES; do
 
     target_directory="../Automations/Validation_Data/Kieker_logs_${START_TIME}"
     wget http://localhost:8081/logs/ -A *.dat -r -nH -P "${target_directory}"
-    find "${target_directory}" -type f -name '*-UTC-*.dat' -print0 | xargs --null -I{} mv {} "${target_directory}/teastore_kieker-${profile}-intensity.dat"
+
+    file_date="$(date +"%Y%m%d")"
+
+    find "${target_directory}" -type f -name '*-UTC-*.dat' -print0 | xargs --null -I{} mv {} "${target_directory}/teastore_kieker-${file_date}-${profile}-intensity.dat"
     rm -rf "${target_directory}/logs"
 
     # -s: Do not echo input coming from a terminal
@@ -150,7 +153,10 @@ case $run_all_test in
   target_directory="Training_Data/Kieker_logs_${START_TIME}"
   profile="low-to-high"
   wget http://localhost:8081/logs/ -A *.dat -r -nH -P "${target_directory}"
-  find "${target_directory}" -type f -name '*-UTC-*.dat' -print0 | xargs --null -I{} mv {} "${target_directory}/teastore_kieker-${profile}-intensity.dat"
+
+  file_date="$(date +"%Y%m%d")"
+
+  find "${target_directory}" -type f -name '*-UTC-*.dat' -print0 | xargs --null -I{} mv {} "${target_directory}/teastore_kieker-${file_date}-${profile}-intensity.dat"
   rm -rf "${target_directory}/logs"
   ;;
 esac
