@@ -58,6 +58,13 @@ cd <RAST directory>/Automations
 cd Setup_TeaStore
 ./setup.sh
 ----
+. Setup Python virtual environments:
++
+[source,sh]
+----
+cd Setup_Python
+./setup.sh
+----
 . Create Training data for the predictive model component:
 +
 [source,sh]
@@ -96,8 +103,14 @@ Wait for the script to finish.
 +
 ** The log files will be downloaded automatically in the folder `Validation_Data/Kieker_logs_<timestamp>`.
 ** The folder should contain four different log files with the `.dat` file extension.
-** You need to create a database for each log file individually. Follow the instructions in xref:../TeaStore/ETL.adoc[ETL].
-** When you are done, you should have four databases, one for each load intensity profile.
+** You need to create a database for each log file individually:
++
+[source,sh]
+----
+./create_validation_databases.sh
+----
++
+** When you are done, you should have four databases located in the folder `Validation_Data/Databases`, one for each load intensity profile.
 . Create Prediction data for Similarity Comparison:
 +
 [source,sh]
