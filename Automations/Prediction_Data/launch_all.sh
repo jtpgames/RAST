@@ -7,6 +7,25 @@ PROFILES="low low_2 med high"
 #model_number_in_simulator=1
 #corr_max_value=0
 
+function activate_venv_in_current_dir {
+  # Check if the "venv" folder exists
+  if [ ! -d "venv" ]; then
+      echo "The 'venv' folder does not exist. Exiting."
+      exit 1
+  fi
+
+  # Activate the virtual environment
+  source venv/bin/activate
+
+  # Check if the virtual environment was activated successfully
+  if [ $? -eq 0 ]; then
+      echo "Virtual environment 'venv' activated successfully."
+  else
+      echo "Failed to activate the virtual environment 'venv'. Exiting."
+      exit 1
+  fi
+}
+
 # move to root folder
 cd ../../
 
@@ -38,37 +57,7 @@ for corr_max_value in {0..1}; do
       echo "launch the test"
       cd ../locust_scripts
 
-      # Check if the "venv" folder exists
-      if [ ! -d "venv" ]; then
-          echo "The 'venv' folder does not exist. Creating a virtual environment..."
-          # Create a virtual environment named "venv"
-          python3 -m venv venv
-
-          # Check if the virtual environment was created successfully
-          if [ $? -eq 0 ]; then
-              echo "Virtual environment 'venv' created successfully."
-          else
-              echo "Failed to create virtual environment 'venv'. Exiting."
-              exit 1
-          fi
-      else
-          echo "The 'venv' folder already exists."
-      fi
-
-      # Activate the virtual environment
-      source activate_venv.sh
-
-      echo "installing python requirements"
-      pip install wheel
-      pip install -r requirements.txt
-
-      # Check if the virtual environment was activated successfully
-      if [ $? -eq 0 ]; then
-          echo "Virtual environment 'venv' activated successfully."
-      else
-          echo "Failed to activate the virtual environment 'venv'. Exiting."
-          exit 1
-      fi
+      activate_venv_in_current_dir
 
       export LOAD_INTENSITY_PROFILE=$profile
       ./start_teastore_loadtest.sh

@@ -3,6 +3,25 @@
 PROFILES="low low_2 med high"
 run_all_test='false'
 
+function activate_venv_in_current_dir {
+  # Check if the "venv" folder exists
+  if [ ! -d "venv" ]; then
+      echo "The 'venv' folder does not exist. Exiting."
+      exit 1
+  fi
+
+  # Activate the virtual environment
+  source venv/bin/activate
+
+  # Check if the virtual environment was activated successfully
+  if [ $? -eq 0 ]; then
+      echo "Virtual environment 'venv' activated successfully."
+  else
+      echo "Failed to activate the virtual environment 'venv'. Exiting."
+      exit 1
+  fi
+}
+
 START_TIME="$(date +"%FT%T")"
 
 while getopts :a flag
@@ -23,27 +42,7 @@ cd ../
 chmod +x launch_teastore.sh
 chmod +x shutdown_teastore.sh
 
-# Check if the "venv" folder exists
-if [ ! -d "venv" ]; then
-    echo "The 'venv' folder does not exist. Creating a virtual environment..."
-    # Create a virtual environment named "venv"
-    python3 -m venv venv
-
-    # Check if the virtual environment was created successfully
-    if [ $? -eq 0 ]; then
-        echo "Virtual environment 'venv' created successfully."
-    else
-        echo "Failed to create virtual environment 'venv'. Exiting."
-        exit 1
-    fi
-else
-    echo "The 'venv' folder already exists."
-fi
-
-source venv/bin/activate
-
-pip install wheel
-pip install docker
+activate_venv_in_current_dir
 
 ./launch_teastore.sh
 
@@ -66,37 +65,7 @@ for profile in $PROFILES; do
   cd locust_scripts
   ./delete_results.sh
 
-  # Check if the "venv" folder exists
-  if [ ! -d "venv" ]; then
-      echo "The 'venv' folder does not exist. Creating a virtual environment..."
-      # Create a virtual environment named "venv"
-      python3 -m venv venv
-
-      # Check if the virtual environment was created successfully
-      if [ $? -eq 0 ]; then
-          echo "Virtual environment 'venv' created successfully."
-      else
-          echo "Failed to create virtual environment 'venv'. Exiting."
-          exit 1
-      fi
-  else
-      echo "The 'venv' folder already exists."
-  fi
-
-  # Activate the virtual environment
-  source activate_venv.sh
-
-  echo "installing python requirements"
-  pip install wheel
-  pip install -r requirements.txt
-
-  # Check if the virtual environment was activated successfully
-  if [ $? -eq 0 ]; then
-      echo "Virtual environment 'venv' activated successfully."
-  else
-      echo "Failed to activate the virtual environment 'venv'. Exiting."
-      exit 1
-  fi
+  activate_venv_in_current_dir
 
   case $run_all_test in
     (true)
