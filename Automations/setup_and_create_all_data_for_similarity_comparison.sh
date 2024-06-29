@@ -2,10 +2,12 @@
 
 # Function to display the help message
 show_help() {
-  echo "Usage: $0 [OPTION]"
+  echo -e "\e[32mThis script sets up and executes an experiment with RAST using TeaStore. The execution of the experiment takes approximately 2-3 hours.\nAt the end of the script, the calculated similarities between TeaStore and RAST's Simulator are stored in the file: Similarity_Comparison/similarity_scores.csv\e[0m\n"
+  echo -e "Usage: $0 [OPTION]\n"
   echo "Options:"
-  echo "  -c, --clean-start    Remove result directories and files before starting, resulting in a fresh start of the experiment"
-  echo "  -h, --help           Display this help message and exit"
+  echo "  -c, --clean-start    Remove result directories and files before starting."
+  echo "                       This results in a fresh start of the experiment, ensuring no previous data interferes."
+  echo "  -h, --help           Display this help message and exit."
 }
 
 # Function to clean directories
@@ -58,6 +60,25 @@ run_validation_data() {
 run_prediction_data() {
   cd Prediction_Data
   ./launch_all.sh
+  cd ../
+}
+
+# Function to collect data for similarity comparison
+collect_similarity_comparison_data() {
+  mkdir -pv Similarity_Comparison/TeaStoreResultComparisonData
+  cp -v Validation_Data/Databases/* Similarity_Comparison/TeaStoreResultComparisonData/
+  cp -rv Prediction_Data/Simulator_Logs/* Similarity_Comparison/TeaStoreResultComparisonData/
+}
+
+# Function to calculate similarities
+calculate_similarities() {
+  cd ../Regression-Analysis_Workload-Characterization
+
+  source venv/bin/activate
+  python ResultComparer.py ../Automations/Similarity_Comparison/TeaStoreResultComparisonData
+
+  mv -v similarity_scores.csv ../Automations/Similarity_Comparison/
+  cd ../Automations
 }
 
 # Execute the functions
@@ -65,3 +86,5 @@ run_setup
 run_training_data
 run_validation_data
 run_prediction_data
+collect_similarity_comparison_data
+calculate_similarities
