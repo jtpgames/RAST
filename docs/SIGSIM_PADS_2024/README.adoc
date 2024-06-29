@@ -53,12 +53,20 @@ cd <RAST directory>/Automations
 ./setup_and_create_all_data_for_similarity_comparison.sh
 ----
 
-Use
-[source,sh]
-----
-setup_and_create_all_data_for_similarity_comparison.sh -h
-----
-for additional information.
+Help message:
+....
+This script sets up and executes an experiment with RAST using TeaStore. The execution of the experiment takes approximately 2-3 hours.
+At the end of the script, the calculated similarities between TeaStore and RAST's Simulator are stored in the file: Similarity_Comparison/similarity_scores.csv
+
+Usage: ./setup_and_create_all_data_for_similarity_comparison.sh [OPTION]
+
+Options:
+  -c, --clean-start    Remove result directories and files before starting.
+                       This results in a fresh start of the experiment, ensuring no previous data interferes.
+  -h, --help           Display this help message and exit.
+....
+
+Steps:
 
 . Navigate to the Automations module:
 +
@@ -136,7 +144,7 @@ cd Prediction_Data
 +
 After the script finishes, the resulting log files are located in subfolders in the folder `Prediction_Data`. The subfolders are named after the predictive model that the simulator used and each one has an additional subfolder for the value of `corr_max`.
 
-==== Manual
+==== Manual (deprecated, use automated workflow described above)
 
 ==== Preparations
 
