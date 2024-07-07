@@ -260,17 +260,25 @@ image::Screen_02.png[width=500]
 image::Screen_03.png[width=800]
 
 === Terminology (refer to our paper for details)
-==== Training data
-The training data was acquired by running a load test against the TeaStore, starting with low load intensity up to high load intensity. The resulting kieker log file is transformed, stored into an SQLite database, and finally used as training data for predictive modelling. The result is a predictive model that is used by the Simulator.
 
-==== Prediction data
-The prediction data was acquired by running a load test against the simulator with each load intensity profile. In between each load test, we copied the resulting teastore_simulation.log file and renamed it accordingly. After acquiring a log file for each load intensity profile, we used our `ResultComparer` found in our Datalore notebook <<datalore_notebook>>. We recommend to take a look at our datalore notebook or the snapshot archive in the Artefact Submission folder to see the recommended naming and structure.
+==== Training Data
+Training data refers to an SQLite database containing predictor and outcome variables extracted from request logs provided by the System Under Evaluation (in our case, TeaStore).
 
-==== Validation data
+The training data is acquired by running load tests against TeaStore, starting with low load intensity and increasing to high load intensity. The resulting Kieker log file is transformed and stored into an SQLite database, which is then used as training data for predictive modeling. The outcome is a predictive model used by the Simulator.
+
+==== Prediction Data
+Prediction data refers to a series of log files produced by the Simulator.
+
+The prediction data is acquired by running load tests against the Simulator for each load intensity profile. Between each load test, we copy the resulting `teastore_simulation.log` file and rename it accordingly. After acquiring a log file for each load intensity profile, we use our `ResultComparer` tool found in our Datalore notebook <<datalore_notebook>>. We recommend referring to our Datalore notebook or the snapshot archive in the Artefact Submission folder for the recommended naming and structure.
+
+==== Validation Data
+Validation data refers to a series of SQLite databases created by extracting request logs from TeaStore.
+
 The validation data we acquired is available in our Datalore notebook <<datalore_notebook>> and in `docs/SIGSIM_PADS_2024/Artefact Submission/RAST_TeaStore_Simulation_Similarity.zip`.
-Acquiring the validation data from TeaStore is a more complex process involving downloading kieker logs, transforming them and storing into an SQLite database.
-The instructions https://github.com/jtpgames/RAST/blob/main/docs/TeaStore/ETL.adoc[here] explain this process.
-The validation data is acquired in a similar fashion as the prediction data, i.e., running a load test, creating a database and repeating for each load intensity profile. Again, we recommend to take a look at our datalore notebook or the snapshot archive to see the structure.
+
+Acquiring the validation data from TeaStore is a more complex process involving downloading Kieker logs, transforming them, and storing them in an SQLite database. Detailed instructions for this process can be found https://github.com/jtpgames/RAST/blob/main/docs/TeaStore/ETL.adoc[here].
+
+The validation data is acquired similarly to the prediction data: running a load test, creating a database, and repeating for each load intensity profile. Again, we recommend referring to our Datalore notebook or the snapshot archive for the recommended structure.
 
 == Artefact Submission Inventory
 
