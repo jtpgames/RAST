@@ -18,7 +18,68 @@ In our paper, we explain, implement and evaluate improvements to the following c
 For our evaluation, we use the https://github.com/DescartesResearch/TeaStore[TeaStore benchmarking application].
 We created a GitHub fork <<teastore_fork>> and modified some parameters of their logging framework to create consistent logs especially for higher intensity workloads.
 
-Additional experimental results not published in our paper, including the Python scripts we use for similarity calculation and the validation and prediction data acquired in our experiments, can be accessed in our Datalore notebook <<datalore_notebook>>.
+Additional experimental results not published in our paper, including the Python scripts we use for similarity calculation and the validation and prediction data acquired in our experiments, can be accessed in our Datalore notebook <<datalore_notebook>>. It includes instructions, our measurements and the Python code we use for similarity calculation. To access the datalore notebook (similar to a Jupyter notebook) creation of a free account is required.
+
+== Terminology (refer to our paper for details)
+
+=== Training Data
+Training data refers to an SQLite database containing predictor and outcome variables extracted from request logs provided by the System Under Evaluation (in our case, TeaStore).
+
+The training data is acquired by running load tests against TeaStore, starting with low load intensity and increasing to high load intensity. The resulting Kieker log file is transformed and stored into an SQLite database, which is then used as training data for predictive modeling. The outcome is a predictive model used by the Simulator.
+
+=== Prediction Data
+Prediction data refers to a series of log files produced by the Simulator.
+
+The prediction data is acquired by running load tests against the Simulator for each load intensity profile. Between each load test, we copy the resulting `teastore_simulation.log` file and rename it accordingly. After acquiring a log file for each load intensity profile, we use our `ResultComparer` tool found in our Datalore notebook <<datalore_notebook>>. We recommend referring to our Datalore notebook or the snapshot archive in the Artefact Submission folder for the recommended naming and structure.
+
+=== Validation Data
+Validation data refers to a series of SQLite databases created by extracting request logs from TeaStore.
+
+The validation data we acquired is available in our Datalore notebook <<datalore_notebook>> and in `docs/SIGSIM_PADS_2024/Artefact Submission/RAST_TeaStore_Simulation_Similarity.zip`.
+
+Acquiring the validation data from TeaStore is a more complex process involving downloading Kieker logs, transforming them, and storing them in an SQLite database. Detailed instructions for this process can be found https://github.com/jtpgames/RAST/blob/main/docs/TeaStore/ETL.adoc[here].
+
+The validation data is acquired similarly to the prediction data: running a load test, creating a database, and repeating for each load intensity profile. Again, we recommend referring to our Datalore notebook or the snapshot archive for the recommended structure.
+
+== Artefact Submission Inventory
+
+This describes the contents of the folder `docs/SIGSIM_PADS_2024/Artefact Submission`.
+
+* RAST_TeaStore_Simulation_Similarity.zip: Exported Datalore notebook snapshot 21.05.2024. The folder `TeaStoreResultComparisonData` includes both the Validation Data and Prediction Data we used in our paper (the datalore notebook contains a greater set of Prediction Data for models we did not mention in our paper).
+* similarity_scores.csv: File created from the ResultComparer Python script found in our Datalore notebook.
+* similarity_scores.ods: File created from the similarity_scores.csv file using LibreOffice. Includes all formulas to assess the experimental results as well as the figures found in the paper. Also includes results and figures not found in the paper.
+* Figures: Includes all figures generated using the similarity_scores.ods file and published in the paper.
+* Tables: Includes tables published in the paper relevant for reproduction.
+
+== Article Claims
+The article has the following major claims:
+
+* C1: RAST is able to produce ridge and decision tree regression models for TeaStore with very high R² scores (> 0.9)
+* C2: Regardless of the model and correction value used, the similarity values consistently decrease as the load intensity increases.
+* C3: Performing the correction loop in the Simulator leads to lower similarity values.
+* C4: The ridge regression model consistently outperforms the decision tree model in terms of similarity values across all request types.
+
+and the following minor claims:
+
+* Cx: The Load Tester is able to consistently generate the same workload, i.e., generate a consistent count and sequence of requests in every execution of the load test
+
+The mapping between claims, experiments, figures and tables are resumed in the following table:
+
+|===
+|Claim |Figures / Tables |Experiment
+
+|C1
+|Table 3
+|Create Predictive Model
+
+|C2
+| Test
+| Test
+
+|Cx
+|Table 2
+|test
+|===
 
 == Instructions for Conducting Experiments
 
@@ -183,7 +244,9 @@ After the script finishes, the resulting log files are located in subfolders in 
 
 ==== Manual (deprecated, use automated workflow described above)
 
-===== Preparations
+.Preparations
+[%collapsible]
+====
 
 * Set up TeaStore according to the https://github.com/jtpgames/RAST/blob/main/docs/TeaStore/Deployment.adoc#setup-teastore[instructions].
 * Clone this repository. Make sure to pull all git submodules as well:
@@ -195,7 +258,11 @@ cd RAST
 ./pull_all_submodules.sh
 ----
 
-===== Instructions
+====
+
+.Instructions
+[%collapsible]
+====
 
 . Open your terminal and use a terminal multiplexer such as tmux to create four sessions. We will refer to these sessions by numbers:
     * Session (1): This session will be used to start the TeaStore or the Simulator. Navigate to the respective folder within the cloned repositories.
@@ -226,6 +293,8 @@ cd RAST
   Set `load_intensity_profile` to your desired value.
 . To modify the predictive model,
   navigate to Session (4) and follow the instructions in the README.md file within the Simulators repository.
+
+====
 
 === Similarity Comparison
 ==== Workflow
@@ -259,34 +328,6 @@ image::Screen_02.png[width=500]
 [#step_3]
 image::Screen_03.png[width=800]
 
-=== Terminology (refer to our paper for details)
-
-==== Training Data
-Training data refers to an SQLite database containing predictor and outcome variables extracted from request logs provided by the System Under Evaluation (in our case, TeaStore).
-
-The training data is acquired by running load tests against TeaStore, starting with low load intensity and increasing to high load intensity. The resulting Kieker log file is transformed and stored into an SQLite database, which is then used as training data for predictive modeling. The outcome is a predictive model used by the Simulator.
-
-==== Prediction Data
-Prediction data refers to a series of log files produced by the Simulator.
-
-The prediction data is acquired by running load tests against the Simulator for each load intensity profile. Between each load test, we copy the resulting `teastore_simulation.log` file and rename it accordingly. After acquiring a log file for each load intensity profile, we use our `ResultComparer` tool found in our Datalore notebook <<datalore_notebook>>. We recommend referring to our Datalore notebook or the snapshot archive in the Artefact Submission folder for the recommended naming and structure.
-
-==== Validation Data
-Validation data refers to a series of SQLite databases created by extracting request logs from TeaStore.
-
-The validation data we acquired is available in our Datalore notebook <<datalore_notebook>> and in `docs/SIGSIM_PADS_2024/Artefact Submission/RAST_TeaStore_Simulation_Similarity.zip`.
-
-Acquiring the validation data from TeaStore is a more complex process involving downloading Kieker logs, transforming them, and storing them in an SQLite database. Detailed instructions for this process can be found https://github.com/jtpgames/RAST/blob/main/docs/TeaStore/ETL.adoc[here].
-
-The validation data is acquired similarly to the prediction data: running a load test, creating a database, and repeating for each load intensity profile. Again, we recommend referring to our Datalore notebook or the snapshot archive for the recommended structure.
-
-== Artefact Submission Inventory
-
-* Datalore notebook(https://datalore.jetbrains.com/notebook/6K6VkECuLMtN5t5nSYg6WK/TVGp1egwDQlwI19astdVlM): Includes instructions, our measurements and the Python code we use for similarity calculation. To access the datalore notebook (similar to a Jupyter notebook) creation of a free account is required.
-* RAST_TeaStore_Simulation_Similarity.zip: Exported Datalore notebook snapshot 21.05.2024. The folder `TeaStoreResultComparisonData` includes both the Validation Data and Prediction Data we used in our paper (the datalore notebook above contains a greater set of Prediction Data for models we did not mention in our paper).
-* similarity_scores.csv: File created from the ResultComparer Python script found in our Datalore notebook.
-* similarity_scores.ods: File created from the similarity_scores.csv file using LibreOffice. Includes all formulas to assess the experimental results as well as the figures found in the paper. Also includes results and figures not found in the paper.
-* Figures: Includes all figures generated using the similarity_scores.ods file.
 
 [bibliography]
 == References
