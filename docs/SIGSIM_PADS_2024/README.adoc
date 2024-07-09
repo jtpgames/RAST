@@ -61,24 +61,32 @@ The article has the following major claims:
 
 and the following minor claims:
 
-* Cx: The Load Tester is able to consistently generate the same workload, i.e., generate a consistent count and sequence of requests in every execution of the load test
+* C5: The Load Tester is able to consistently generate the same workload, i.e., generate a consistent count and sequence of requests in every execution of the load test
 
-The mapping between claims, experiments, figures and tables are resumed in the following table:
+The mapping between claims, experiments, figures and tables are as follows (figures and tables are located in `docs/SIGSIM_PADS_2024/Artefact Submission`:
 
 |===
 |Claim |Figures / Tables |Experiment
 
 |C1
 |Table 3
-|Create Predictive Model
+|Create Predictive Model and look at the folder `Regression-Analysis_Workload-Characterization/regression_analysis_results`. The R² score is part of the folder name of the created model, e.g., DT_**r2-0.4028_**09-12-2023_13:42:30
 
 |C2
-| Test
-| Test
+| Fig. 8-11
+| Perform Full Experiment
 
-|Cx
+|C3
+| Fig. 8, 10 or Fig. 9, 11
+| Perform Full Experiment and compare the respective figure pairs.
+
+|C4
+| Fig. 8, 9 or Fig. 10, 11, and Tables 4, 5
+| Perform Full Experiment and compare the respective figure pairs and tables.
+
+|C5
 |Table 2
-|test
+|Create Prediction and Validation Data and count the number of received requests in the respective dataset.
 |===
 
 == Instructions for Conducting Experiments
