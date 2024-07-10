@@ -46,11 +46,16 @@ activate_venv_in_current_dir
 
 ./launch_teastore.sh
 
-curl "localhost:8080/tools.descartes.teastore.webui/status"
-curl "localhost:8080/tools.descartes.teastore.webui/"
-curl "localhost:8080/tools.descartes.teastore.webui/login"
-curl "localhost:8080/tools.descartes.teastore.webui/category?category=2&page=1"
-curl "localhost:8080/tools.descartes.teastore.webui/product?id=7"
+# perform a few requests to warm up the service
+
+for i in {1..10}
+do
+  curl "http://localhost:8080/tools.descartes.teastore.webui/status"
+  curl "http://localhost:8080/tools.descartes.teastore.webui/"
+  curl "http://localhost:8080/tools.descartes.teastore.webui/login"
+  curl "http://localhost:8080/tools.descartes.teastore.webui/category?category=2&page=1"
+  curl "http://localhost:8080/tools.descartes.teastore.webui/product?id=7"
+done
 
 # reset logs so that the following logs only contain request logs from requests caused by the load test.
 curl "localhost:8081/logs/reset"
