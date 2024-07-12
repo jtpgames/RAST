@@ -1,11 +1,6 @@
 #!/bin/bash
 
 PROFILES="low low_2 med high"
-#model="teastore_model_DT_T-PR_1_3"
-#model_number_in_simulator=0
-#model="teastore_model_Ridge_T_PR_1_3"
-#model_number_in_simulator=1
-#corr_max_value=0
 
 function activate_venv_in_current_dir {
   # Check if the "venv" folder exists
@@ -91,5 +86,5 @@ done
 
 # move all log files to Automations/Prediction_Data
 
-mv -v Simulators/teastore_model_Ridge_T_PR_1_3 Automations/Prediction_Data/Simulator_Logs/
-mv -v Simulators/teastore_model_DT_T-PR_1_3 Automations/Prediction_Data/Simulator_Logs/
+mv -v "Simulators/teastore_model_Ridge_T_PR_1_3" Automations/Prediction_Data/Simulator_Logs/
+mv -v "Simulators/teastore_model_DT_T-PR_1_3" Automations/Prediction_Data/Simulator_Logs/

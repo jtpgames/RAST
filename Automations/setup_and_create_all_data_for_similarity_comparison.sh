@@ -81,6 +81,7 @@ calculate_similarities() {
   python ResultComparer.py ../Automations/Similarity_Comparison/TeaStoreResultComparisonData
 
   mv -v similarity_scores.csv ../Automations/Similarity_Comparison/
+  mv -v requests_count.txt ../Automations/Similarity_Comparison/
   cd ../Automations
 }
 
