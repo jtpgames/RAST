@@ -60,33 +60,36 @@ The article has the following claims:
 * C4: The ridge regression model consistently outperforms the decision tree model in terms of similarity values across all request types.
 * C5: The Load Tester is able to consistently generate the same workload, i.e., generate a consistent count and sequence of requests in every execution of the load test
 
-The mapping between claims, experiments, figures and tables are as follows (figures and tables are located in `docs/SIGSIM_PADS_2024/Artefact Submission`:
+To verify the claims, perform the full experiment according to the <<_instructions_for_conducting_experiments>>.
+
+The mapping between claims, figures and tables are as follows (original figures and tables are located in `docs/SIGSIM_PADS_2024/Artefact Submission`:
 
 |===
-|Claim |Figures / Tables |Experiment
+|Claim |Figures / Tables |Additional information
 
 |C1
 |Table 3
-|Create Predictive Model and look at the folder `Regression-Analysis_Workload-Characterization/regression_analysis_results`. The R² score is part of the folder name of the created model, e.g., DT_**r2-0.966**_24-05-2024_16:04:06
+|The predictive models are located in the folder `Automations/Training_Data/Predictive_Models` The R² score is part of the folder name of the created model, e.g., DT_**r2-0.966**_24-05-2024_16:04:06
 
 |C2
 | Fig. 8-11
-| Perform Full Experiment
+| Observe the downward trend in the figures.
 
 |C3
 | Fig. 8, 10 or Fig. 9, 11
-| Perform Full Experiment and compare the respective figure pairs.
+| Compare the respective figure pairs.
 
 |C4
 | Fig. 8, 9 or Fig. 10, 11, and Tables 4, 5
-| Perform Full Experiment and compare the respective figure pairs and tables.
+| Compare the respective figure pairs and tables.
 
 |C5
 |Table 2
-| Perform Full Experiment. The ResultComparer script creates a requests_count.txt file containing the number of requests found in the prediction and validation data.
+| Look in the `Automations/Similarity_Comparison/requests_count.txt` file containing the number of requests found in the prediction and validation data.
 
 |===
 
+[#_instructions_for_conducting_experiments]
 == Instructions for Conducting Experiments
 
 To conduct the experiments outlined in this paper, please follow the step-by-step instructions below:
