@@ -18,6 +18,9 @@ clean_start() {
   rm -rv Validation_Data/Kieker_logs_*
   rm -rv Validation_Data/Databases
   rm -rv Prediction_Data/Simulator_Logs
+  rm -rv Similarity_Comparison/TeaStoreResultComparisonData
+  rm -rv Similarity_Comparison/requests_count.txt
+  rm -rv Similarity_Comparison/similarity_scores.csv
 }
 
 # Check for the -c, --clean-start, -h, or --help flag
@@ -66,7 +69,7 @@ run_prediction_data() {
 # Function to collect data for similarity comparison
 collect_similarity_comparison_data() {
   mkdir -pv Similarity_Comparison/TeaStoreResultComparisonData
-  cp -v Validation_Data/Databases/* Similarity_Comparison/TeaStoreResultComparisonData/
+  cp -rv Validation_Data/Databases/* Similarity_Comparison/TeaStoreResultComparisonData/
   cp -rv Prediction_Data/Simulator_Logs/* Similarity_Comparison/TeaStoreResultComparisonData/
 }
 
