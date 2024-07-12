@@ -302,6 +302,7 @@ cd RAST
 
 ====
 
+[#_similarity_comparison]
 === Similarity Comparison
 ==== Workflow
 
