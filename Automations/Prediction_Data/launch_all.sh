@@ -86,5 +86,6 @@ done
 
 # move all log files to Automations/Prediction_Data
 
+mkdir -pv Automations/Prediction_Data/Simulator_Logs
 mv -v "Simulators/teastore_model_Ridge_T_PR_1_3" Automations/Prediction_Data/Simulator_Logs/
 mv -v "Simulators/teastore_model_DT_T-PR_1_3" Automations/Prediction_Data/Simulator_Logs/
