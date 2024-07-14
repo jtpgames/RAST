@@ -46,7 +46,9 @@ activate_venv_in_current_dir
 
 ./launch_teastore.sh
 
-# perform a few requests to warm up the service
+# perform a few requests to warm up the service (a real warmup is performed by the load test later,
+# this is just a start,
+# because we observed that sometimes the load balancer of TeaStore gets stuck.
 
 for i in {1..10}
 do
@@ -66,6 +68,8 @@ curl "localhost:8081/logs/reset"
 # move to root folder
 cd ../
 
+first_iteration=true
+
 for profile in $PROFILES; do
   echo $profile
 
@@ -81,6 +85,15 @@ for profile in $PROFILES; do
     export KEEP_TEASTORE_LOGS=True
     ;;
   esac
+
+  # Perform the warmup phase on the first load test
+  if [ "$first_iteration" = true ]; then
+    echo "Perform warmup phase"
+    export WARMUP_PHASE=True
+    first_iteration=false
+  else
+    export WARMUP_PHASE=False
+  fi
 
   export LOAD_INTENSITY_PROFILE=$profile
   ./start_teastore_loadtest.sh
