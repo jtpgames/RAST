@@ -85,10 +85,61 @@ calculate_similarities() {
   cd ../Automations
 }
 
-# Execute the functions
-run_setup
-run_training_data
-run_validation_data
-run_prediction_data
-collect_similarity_comparison_data
-calculate_similarities
+# Function to format and print elapsed time
+print_time() {
+  local elapsed_time=$1
+  local formatted_time=$(date -u -d @"$elapsed_time" +"%T")
+  echo "$formatted_time"
+}
+
+# Function to capture start and end time for a given function call
+time_function() {
+  local function_name=$1
+  local start_time=$(date +%s)
+
+  # Call the function
+  $function_name
+
+  local end_time=$(date +%s)
+  local elapsed_time=$((end_time - start_time))
+
+  # Store the elapsed time in a global associative array
+  times[$function_name]=$elapsed_time
+}
+
+# Declare an associative array to store function names and their execution times
+declare -A times
+
+# Capture the start time of the whole script
+script_start_time=$(date +%s)
+
+# List of functions to be executed
+functions=(
+  "run_setup"
+  "run_training_data"
+  "run_validation_data"
+  "run_prediction_data"
+  "collect_similarity_comparison_data"
+  "calculate_similarities"
+)
+
+# Execute each function and track its execution time
+for func in "${functions[@]}"
+do
+  time_function $func
+done
+
+# Capture the end time of the whole script
+script_end_time=$(date +%s)
+script_elapsed_time=$((script_end_time - script_start_time))
+
+# Print the time taken for each function
+echo "Time taken for each function:"
+for func in "${functions[@]}"
+do
+  echo "$func: $(print_time ${times[$func]})"
+done
+
+# Print the total time taken for the whole script
+echo "Total execution time: $(print_time $script_elapsed_time)"
+
