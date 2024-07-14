@@ -133,13 +133,21 @@ done
 script_end_time=$(date +%s)
 script_elapsed_time=$((script_end_time - script_start_time))
 
+# Define colors
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+
+# Print the header of the table
+printf "${CYAN}%-40s %-20s${NC}\n" "Function" "Time Taken"
+
 # Print the time taken for each function
-echo "Time taken for each function:"
 for func in "${functions[@]}"
 do
-  echo "$func: $(print_time ${times[$func]})"
+  printf "%-40s %-20s\n" "$func" "$(print_time ${times[$func]})"
 done
 
 # Print the total time taken for the whole script
-echo "Total execution time: $(print_time $script_elapsed_time)"
+printf "\n${GREEN}%-40s %-20s${NC}\n" "Total execution time" "$(print_time $script_elapsed_time)"
+
 
