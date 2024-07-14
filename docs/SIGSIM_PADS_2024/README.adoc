@@ -162,7 +162,7 @@ cd <RAST directory>/Automations
 
 Help message:
 ....
-This script sets up and executes an experiment with RAST using TeaStore. The execution of the experiment takes approximately 2-3 hours.
+This script sets up and executes an experiment with RAST using TeaStore. The execution of the experiment takes approximately 1-2 hours.
 At the end of the script, the calculated similarities between TeaStore and RAST's Simulator are stored in the file: Similarity_Comparison/similarity_scores.csv
 
 Usage: ./setup_and_create_all_data_for_similarity_comparison.sh [OPTION]
@@ -173,8 +173,22 @@ Options:
   -h, --help           Display this help message and exit.
 ....
 
-Steps:
+At the end, the script prints all functions that it executed and the time it required. One example for a final output looks like this:
+....
+Function                                 Time Taken
+run_setup                                00:00:53
+run_training_data                        00:21:36
+run_validation_data                      00:21:12
+run_prediction_data                      00:47:26
+collect_similarity_comparison_data       00:00:00
+calculate_similarities                   00:00:08
 
+Total execution time                     01:31:15
+....
+
+.Steps the script executes:
+[%collapsible]
+====
 . Navigate to the Automations module:
 +
 [source,sh]
@@ -250,6 +264,8 @@ cd Prediction_Data
 ----
 +
 After the script finishes, the resulting log files are located in subfolders in the folder `Prediction_Data`. The subfolders are named after the predictive model that the simulator used and each one has an additional subfolder for the value of `corr_max`.
+
+====
 
 ==== Manual (deprecated, use automated workflow described above)
 

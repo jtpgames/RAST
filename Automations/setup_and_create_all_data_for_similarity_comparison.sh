@@ -2,7 +2,7 @@
 
 # Function to display the help message
 show_help() {
-  echo -e "\e[32mThis script sets up and executes an experiment with RAST using TeaStore. The execution of the experiment takes approximately 2-3 hours.\nAt the end of the script, the calculated similarities between TeaStore and RAST's Simulator are stored in the file: Similarity_Comparison/similarity_scores.csv\e[0m\n"
+  echo -e "\e[32mThis script sets up and executes an experiment with RAST using TeaStore. The execution of the experiment takes approximately 1-2 hours.\nAt the end of the script, the calculated similarities between TeaStore and RAST's Simulator are stored in the file: Similarity_Comparison/similarity_scores.csv\e[0m\n"
   echo -e "Usage: $0 [OPTION]\n"
   echo "Options:"
   echo "  -c, --clean-start    Remove result directories and files before starting."
