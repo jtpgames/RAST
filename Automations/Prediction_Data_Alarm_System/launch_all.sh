@@ -46,9 +46,9 @@ for corr_max_value in {1..2}; do
   for model_number_in_simulator in {1..2}; do
 
     if (( $model_number_in_simulator == 1 )); then
-      model="gs_model_Ridge_T_PR_1_3"
+      model="gs_model_Ridge"
     elif (( $model_number_in_simulator == 2)); then
-      model="gs_model_DT_T_PR_1_3"
+      model="gs_model_DT"
     else
       echo "unknown model number"
       exit 2
@@ -110,6 +110,8 @@ for corr_max_value in {1..2}; do
       dst_log_folder+="No correction"
     elif (( $corr_max_value == 1)); then
       dst_log_folder+="One correction"
+    elif (( $corr_max_value == 2)); then
+      dst_log_folder+="Two corrections"
     else
       dst_log_folder+="More corrections"
     fi
@@ -149,9 +151,9 @@ cd ../
 echo "Moving all log files to Automations/Prediction_Data_Alarm_System ..."
 
 mkdir -pv Automations/Prediction_Data_Alarm_System/LoadTester_Logs
-mv -v "locust_scripts/gs_model_Ridge_T_PR_1_3" Automations/Prediction_Data_Alarm_System/LoadTester_Logs/
-mv -v "locust_scripts/gs_model_DT_T_PR_1_3" Automations/Prediction_Data_Alarm_System/LoadTester_Logs/
+mv -v "locust_scripts/gs_model_Ridge" Automations/Prediction_Data_Alarm_System/LoadTester_Logs/
+mv -v "locust_scripts/gs_model_DT" Automations/Prediction_Data_Alarm_System/LoadTester_Logs/
 
 mkdir -pv Automations/Prediction_Data_Alarm_System/Simulator_Logs
-mv -v "Simulators/gs_model_Ridge_T_PR_1_3" Automations/Prediction_Data_Alarm_System/Simulator_Logs/
-mv -v "Simulators/gs_model_DT_T_PR_1_3" Automations/Prediction_Data_Alarm_System/Simulator_Logs/
+mv -v "Simulators/gs_model_Ridge" Automations/Prediction_Data_Alarm_System/Simulator_Logs/
+mv -v "Simulators/gs_model_DT" Automations/Prediction_Data_Alarm_System/Simulator_Logs/
