@@ -22,6 +22,8 @@ function activate_venv_in_current_dir {
 # move to root folder
 cd ../
 
+echo "Copying training data to ML_ETL ..."
+
 mkdir -p ../ML_ETL/GS_Logs/Training_Data && rsync -auv --include '*/' --include '*.log' --exclude '*' --progress GS_Alarmsystem_Logs/ ../ML_ETL/GS_Logs/Training_Data/
 
 # move to ML_ETL project
@@ -34,11 +36,15 @@ cd Logfiles
 
 logsDirToUse="Test_Data"
 
+echo "Starting ETL process ..."
+
 python ARSLogConverter.py -d "../GS_Logs/$logsDirToUse/"
 
 python WSLogFixer.py -d "../GS_Logs/$logsDirToUse/"
 
 python LogMerger.py -d "../GS_Logs/$logsDirToUse/"
+
+python WorkloadExtractor.py -d "../GS_Logs/$logsDirToUse/"
 
 python RequestLogToCLF.py -d "../GS_Logs/$logsDirToUse/" --force
 
@@ -47,7 +53,16 @@ python LogToDbETL.py "../GS_Logs/$logsDirToUse/"
 # move back to project folder
 cd ../
 
+echo "Copying extracted workload ..."
+mkdir -pv ../Automations/Training_Data_Alarm_System/Extracted_Workload
+
+find GS_Logs/ -type f -name "Request_Names.log" -exec mv -v {} ../Automations/Training_Data_Alarm_System/Extracted_Workload \;
+find GS_Logs/ -type f -name "Requests_per_time_unit_*.log" -exec mv -v {} ../Automations/Training_Data_Alarm_System/Extracted_Workload \;
+
+echo "Copying database to Training_Data folder ..."
 mkdir -p db/Training_Data && mv -v db/trainingdata_*.db db/Training_Data/trainingdata.db
+
+echo "Starting Regression Analysis ..."
 
 # move to RegressionAnalysis project
 cd ../Regression-Analysis_Workload-Characterization
