@@ -1,14 +1,17 @@
 #!/bin/bash
 
 prefix="teastore"
+model_postfix="_T_PR_1_3"
 model_dir="Predictive_Models"
 
 if [ ! -z "$1" ]; then
     prefix="$1"
 fi
 
-if [ ! -z "$2" ]; then
-    model_dir="$2"
+model_postfix="$2"
+
+if [ ! -z "$3" ]; then
+    model_dir="$3"
 fi
 
 latest_ridge_file="$(find "$model_dir" -iname "*_Ridge_*.pmml" -printf "\n%AD %AT %p" | sort | tail -n 1 | awk '{print $3}')"
@@ -23,7 +26,7 @@ echo $latest_ridge_mapping_file
 echo $latest_dt_file
 echo $latest_dt_mapping_file
 
-cp "${latest_ridge_file}" "../../Simulators/src/main/resources/${prefix}_model_Ridge_T_PR_1_3.pmml"
-cp "${latest_ridge_mapping_file}" "../../Simulators/src/main/resources/${prefix}_requests_mapping_LR_ordinal_encoding.json"
-cp "${latest_dt_file}" "../../Simulators/src/main/resources/${prefix}_model_DT_T_PR_1_3.pmml"
-cp "${latest_dt_mapping_file}" "../../Simulators/src/main/resources/${prefix}_requests_mapping_DT_ordinal_encoding.json"
+cp -v "${latest_ridge_file}" "../../Simulators/src/main/resources/${prefix}_model_Ridge${model_postfix}.pmml"
+cp -v "${latest_ridge_mapping_file}" "../../Simulators/src/main/resources/${prefix}_requests_mapping_LR_ordinal_encoding.json"
+cp -v "${latest_dt_file}" "../../Simulators/src/main/resources/${prefix}_model_DT${model_postfix}.pmml"
+cp -v "${latest_dt_mapping_file}" "../../Simulators/src/main/resources/${prefix}_requests_mapping_DT_ordinal_encoding.json"
