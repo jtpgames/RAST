@@ -29,38 +29,48 @@ mkdir -p ../ML_ETL/GS_Logs/Training_Data && rsync -auv --include '*/' --include 
 # move to ML_ETL project
 cd ../ML_ETL
 
-activate_venv_in_current_dir
+logsDirToUse="Training_Data"
 
-# move to Logfiles directory
-cd Logfiles
+# Path to the file
+db_path="db/Training_Data/trainingdata.db"
 
-logsDirToUse="Test_Data"
+# Check if the database file does not exist
+if [ ! -f "$db_path" ]; then
 
-echo "Starting ETL process ..."
+  activate_venv_in_current_dir
 
-python ARSLogConverter.py -d "../GS_Logs/$logsDirToUse/"
+  # move to Logfiles directory
+  cd Logfiles
 
-python WSLogFixer.py -d "../GS_Logs/$logsDirToUse/"
+  echo "Starting ETL process ..."
 
-python LogMerger.py -d "../GS_Logs/$logsDirToUse/"
+  python ARSLogConverter.py -d "../GS_Logs/$logsDirToUse/"
 
-python WorkloadExtractor.py -d "../GS_Logs/$logsDirToUse/"
+  python WSLogFixer.py -d "../GS_Logs/$logsDirToUse/"
 
-python RequestLogToCLF.py -d "../GS_Logs/$logsDirToUse/" --force
+  python LogMerger.py -d "../GS_Logs/$logsDirToUse/"
 
-python LogToDbETL.py "../GS_Logs/$logsDirToUse/"
+  python WorkloadExtractor.py -d "../GS_Logs/$logsDirToUse/"
 
-# move back to project folder
-cd ../
+  python RequestLogToCLF.py -d "../GS_Logs/$logsDirToUse/" --force
 
-echo "Copying extracted workload ..."
-mkdir -pv ../Automations/Training_Data_Alarm_System/Extracted_Workload
+  python LogToDbETL.py "../GS_Logs/$logsDirToUse/"
 
-find GS_Logs/ -type f -name "Request_Names.log" -exec mv -v {} ../Automations/Training_Data_Alarm_System/Extracted_Workload \;
-find GS_Logs/ -type f -name "Requests_per_time_unit_*.log" -exec mv -v {} ../Automations/Training_Data_Alarm_System/Extracted_Workload \;
+  # move back to project folder
+  cd ../
 
-echo "Copying database to Training_Data folder ..."
-mkdir -p db/Training_Data && mv -v db/trainingdata_*.db db/Training_Data/trainingdata.db
+  echo "Copying extracted workload ..."
+  mkdir -pv ../Automations/Training_Data_Alarm_System/Extracted_Workload
+
+  find GS_Logs/ -type f -name "Request_Names.log" -exec mv -v {} ../Automations/Training_Data_Alarm_System/Extracted_Workload \;
+  find GS_Logs/ -type f -name "Requests_per_time_unit_*.log" -exec mv -v {} ../Automations/Training_Data_Alarm_System/Extracted_Workload \;
+
+  echo "Copying database to Training_Data folder ..."
+  mkdir -p db/Training_Data && mv -v db/trainingdata_*.db "$db_path"
+
+else
+  echo "$db_path already exists"
+fi
 
 echo "Starting Regression Analysis ..."
 
@@ -69,8 +79,8 @@ cd ../Regression-Analysis_Workload-Characterization
 
 activate_venv_in_current_dir
 
-python RegressionAnalysis.py ../ML_ETL/db/Training_Data/trainingdata.db Ridge
-python RegressionAnalysis.py ../ML_ETL/db/Training_Data/trainingdata.db DT
+python RegressionAnalysis.py "../ML_ETL/$db_path" Ridge
+python RegressionAnalysis.py "../ML_ETL/$db_path" DT
 
 mkdir -pv ../Automations/Training_Data_Alarm_System/Predictive_Models && mv -v regression_analysis_results/* ../Automations/Training_Data_Alarm_System/Predictive_Models
 
