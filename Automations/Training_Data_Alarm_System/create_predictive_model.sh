@@ -89,6 +89,8 @@ mkdir -pv ../Automations/Training_Data_Alarm_System/Predictive_Models && mv -v r
 cd ../ML_ETL
 rm -v db/Training_Data/trainingdata.db
 
-find GS_Logs/ -type f -name "Merged_*.log" -exec rm -v -f {} \;
-find GS_Logs/ -type f -name "Conv_*.log" -exec rm -v -f {} \;
-find GS_Logs/ -type f -name "request_statistics_*.json" -exec rm -v -f {} \;
+#find GS_Logs/ -type f -name "Merged_*.log" -exec rm -v -f {} \;
+#find GS_Logs/ -type f -name "Conv_*.log" -exec rm -v -f {} \;
+#find GS_Logs/ -type f -name "request_statistics_*.json" -exec rm -v -f {} \;
+
+rm -rv GS_Logs/Training_Data

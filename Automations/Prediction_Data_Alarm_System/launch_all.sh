@@ -64,8 +64,8 @@ for corr_max_value in {1..2}; do
     echo "$PASSWORD" | sudo -S $COMMAND
     # sleep a bit to wait for the environment to be ready, this can take some time and even then,
     # the performance test won't be finished within a few minutes, so we can sleep for some minutes.
-    echo "Launched mininet, waiting for 120 seconds ..."
-    sleep 10
+    echo "Launched mininet, waiting for 60 seconds ..."
+    sleep 60
     cd ../
 
     echo "Begin polling the locust-parameter-variation.log to check if the load test was finished ('Finished performance test.')"
