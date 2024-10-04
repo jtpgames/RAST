@@ -16,7 +16,7 @@ Also, contains additional modules:
 * TeaStore: Fork of the TeaStore benchmarking application adapting for our experiments. (Case Study)
 
 == Cloning
-* Clone this repository. Make sure, to pull all git submodels as well:
+If you want to work on the current version of the project, clone the repository and pull all git submodules with the following command. If you want to reproduce experiments presented at conferences or journals, navigate to the respective conference/journal in Section <<_reproduction_instructions_for_conferencesjournals>> and download the zenodo repository.
 
 [source]
 ----
@@ -37,5 +37,7 @@ pip install -r requirements.txt
 == Known issues
 * GitHub unfortunately has issues with some of the cross-referenced files that are located in submodules. We recommend to read the asciidoc files locally on your computer instead of online in GitHub.
 
-== Reproduction Instructions for Conferences
-* xref:docs/SIGSIM_PADS_2024/README.adoc[SIGSIM PADS 2024]
+== Reproduction Instructions for Conferences/Journals
+* xref:docs/SIGSIM_PADS_2024/README.adoc[SIGSIM PADS 2024/TOMACS]: image:https://zenodo.org/badge/DOI/10.5281/zenodo.12740635.svg[link=https://doi.org/10.5281/zenodo.12740635]
+
+
