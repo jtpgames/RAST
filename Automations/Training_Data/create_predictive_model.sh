@@ -36,14 +36,14 @@ cd ../ML_ETL
 activate_venv_in_current_dir
 
 # move to Logfiles directory
-cd GS/Logfiles
+cd Logfiles
 
-python GSLogToLocustConverter.py -d ../../TeaStoreLogs/Training_Data
+python GSLogToLocustConverter.py -d ../TeaStoreLogs/Training_Data
 
-python LogToDbETL.py ../../TeaStoreLogs/Training_Data
+python LogToDbETL.py ../TeaStoreLogs/Training_Data
 
 # move back to project folder
-cd ../../
+cd ../
 
 mkdir -p db/Training_Data && mv -v db/trainingdata_*.db db/Training_Data/trainingdata.db
 

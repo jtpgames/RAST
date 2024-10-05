@@ -31,18 +31,18 @@ else
 fi
 
 # move to Logfiles directory
-cd GS/Logfiles
+cd Logfiles
 
 for profile in $PROFILES; do
-  python GSLogToLocustConverter.py -d "../../TeaStoreLogs/Validation_Data/$profile-intensity"
+  python GSLogToLocustConverter.py -d "../TeaStoreLogs/Validation_Data/$profile-intensity"
 
-  python LogToDbETL.py "../../TeaStoreLogs/Validation_Data/$profile-intensity/" "../../db/Validation_Data/$profile-intensity"
+  python LogToDbETL.py "../TeaStoreLogs/Validation_Data/$profile-intensity/" "../db/Validation_Data/$profile-intensity"
 
-  mkdir -pv ../../../Automations/Validation_Data/Databases && mv -v ../../db/Validation_Data/"$profile"-intensity/trainingdata_*.db "../../../Automations/Validation_Data/Databases/validationdata_$profile-intensity.db"
+  mkdir -pv ../../Automations/Validation_Data/Databases && mv -v ../db/Validation_Data/"$profile"-intensity/trainingdata_*.db "../../Automations/Validation_Data/Databases/validationdata_$profile-intensity.db"
 done
 
 # move to root folder
-cd ../../../
+cd ../../
 
 # delete intermediate results
 
