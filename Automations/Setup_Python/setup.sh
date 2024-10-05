@@ -28,7 +28,7 @@ function create_and_activate_venv_in_current_dir {
       echo "Virtual environment 'venv' activated successfully."
   else
       echo "Failed to activate the virtual environment 'venv'. Exiting."
-      exit 1
+      exit 2
   fi
 }
 
