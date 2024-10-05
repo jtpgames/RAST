@@ -23,6 +23,14 @@ If you want to work on the current version of the project, clone the repository 
 git clone https://github.com/jtpgames/RAST.git && cd RAST && ./pull_all_submodules.sh
 ----
 
+== Updates
+Because this repository heavily relies on git submodules, it is necessary to use the following command to make sure that all changes are properly pulled:
+
+[source]
+----
+git pull && ./pull_all_submodules.sh
+----
+
 == Recommendations
 * We recommend to work with python virtual environments in all python projects. The scripts in the Automation module create and use virtual environments. Here are the manual steps to create a virtual environment, activate it, and install dependencies:
 +
@@ -35,8 +43,9 @@ pip install -r requirements.txt
 ----
 
 == Known issues
-* GitHub unfortunately has issues with some of the cross-referenced files that are located in submodules. We recommend to read the asciidoc files locally on your computer instead of online in GitHub.
+* GitHub unfortunately has issues with some of the cross-referenced files that are located in submodules.We recommend to read the asciidoc files locally on your computer instead of online in GitHub.
 
+[#_reproduction_instructions_for_conferencesjournals]
 == Reproduction Instructions for Conferences/Journals
 * xref:docs/SIGSIM_PADS_2024/README.adoc[SIGSIM PADS 2024/TOMACS]: image:https://zenodo.org/badge/DOI/10.5281/zenodo.12740635.svg[link=https://doi.org/10.5281/zenodo.12740635]
 
