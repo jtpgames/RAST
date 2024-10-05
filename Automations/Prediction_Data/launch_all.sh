@@ -47,7 +47,7 @@ for corr_max_value in {0..1}; do
       cd ../Simulators
       screen -S currentscreen -d -m ./gradlew run --args="-m $model_number_in_simulator -c $corr_max_value"
       # sleep a bit to wait that the simulator is ready
-      sleep 10
+      sleep 30
 
       echo "launch the test"
       cd ../locust_scripts

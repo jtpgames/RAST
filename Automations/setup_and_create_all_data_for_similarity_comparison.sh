@@ -39,6 +39,11 @@ run_setup() {
 
   cd Setup_Python
   ./setup.sh
+  if [ $? -ne 0 ]
+  then
+    echo "Could not setup python virtual environments. Check the logs above and before retrying, delete any old venv folders in the projects." >&2
+    exit $?
+  fi
   cd ../
 }
 
