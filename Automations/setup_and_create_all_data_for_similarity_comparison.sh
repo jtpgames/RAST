@@ -35,6 +35,11 @@ fi
 run_setup() {
   cd Setup_TeaStore
   ./setup.sh
+  if [ $? -ne 0 ]
+  then
+    echo "Could not setup TeaStore. Check the logs above and before retrying, delete any old venv folders in the projects." >&2
+    exit $?
+  fi
   cd ../
 
   cd Setup_Python
@@ -52,7 +57,17 @@ run_training_data() {
   cd Training_Data
   ./launch_all.sh
   ./create_predictive_model.sh
+  if [ $? -ne 0 ]
+  then
+    echo "Could not create predictive models. Check the logs above and before retrying, delete any old venv folders in the projects." >&2
+    exit $?
+  fi
   ./copy_models_to_simulator.sh
+  if [ $? -ne 0 ]
+  then
+    echo "Could not copy models to simulator. Check the logs above and before retrying, delete any old venv folders in the projects." >&2
+    exit $?
+  fi
   cd ../
 }
 

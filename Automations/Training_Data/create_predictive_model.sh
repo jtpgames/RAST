@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 function activate_venv_in_current_dir {
   # Check if the "venv" folder exists
   if [ ! -d "venv" ]; then
