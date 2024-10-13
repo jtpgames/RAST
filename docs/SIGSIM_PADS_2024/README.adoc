@@ -5,7 +5,7 @@
 
 :xrefstyle: short
 
-**Last change from: 04.10.2024**
+**Last change from: 10.10.2024**
 
 **TODO: Accepted for publication at PADS 2024/TOMACS. Add link.**
 
@@ -50,6 +50,9 @@ This describes the contents of the folder `docs/SIGSIM_PADS_2024/Artefact Submis
 * similarity_scores.ods: File created from the similarity_scores.csv file using LibreOffice. Includes all formulas to assess the experimental results as well as the figures found in the paper. Also includes results and figures not found in the paper.
 * Figures: Includes all figures generated using the similarity_scores.ods file and published in the paper.
 * Tables: Includes tables published in the paper relevant for reproduction.
+* Folder Configuration_1: Contains the result of running the instructions in Section <<_workflow_for_acquiring_data_for_similarity_comparison>> with <<_configuration_1>>.
+* Folder Configuration_2: Contains the result of running the instructions in Section <<_workflow_for_acquiring_data_for_similarity_comparison>> with <<_configuration_2>>.
+* Folder Configuration_3: Contains the result of running the instructions in Section <<_workflow_for_acquiring_data_for_similarity_comparison>> with <<_configuration_3>>.
 
 == Article Claims
 The article has the following claims:
@@ -96,23 +99,62 @@ To conduct the experiments outlined in this paper, please follow the step-by-ste
 
 === System Requirements
 
-The hardware/software configuration used by the authors is:
-
+To enhance the reliability of our experimental results and ensure they robustly support our claims, we conducted the experiments across various hardware and software configurations. The specific configurations utilized by the authors include:
+[#_configuration_1]
+==== Configuration 1
 * CPU: Intel® Core™ i5-1135G7 @ 2.40GHz × 8
 * RAM: 16GB
-* OS: Ubuntu 22.04.4 LTS (Jammy Jellyfish) 64-bit
+* OS: Ubuntu 24.04.1 LTS 64-bit (_newer OS versions are untested_)
 
 Packages to install (use `sudo apt-get install X` where `X` is the name of the following packages):
 
 * curl
 * git
 * docker-compose (we used version 1.29.2)
-* docker (we used version 26.1.4)
-* python3.10-venv
-* python3.10-dev
+* docker (we used version 27.2.0)
+* python3.12-venv
+* python3.12-dev
 * openjdk-11-jre-headless
 * maven (we used version 3.6.3)
 * screen
+
+With the following command, all packages can be installed at once:
+[source]
+----
+sudo apt-get install unzip curl git docker-compose docker python3.12-venv python3.12-dev openjdk-11-jre-headless maven screen make gcc g++
+----
+
+[#_configuration_2]
+==== Configuration 2 (reported in the paper)
+Virtual machine running on Configuration 1 with
+
+* CPU: 6 vCPUs
+* RAM: 8GB
+* OS: Ubuntu 22.04.4 LTS 64-bit
+
+using python 3.10 instead of 3.12 and docker version 24.0.7.
+
+[source]
+----
+sudo apt-get install unzip curl git docker-compose docker python3.10-venv python3.10-dev openjdk-11-jre-headless maven screen make gcc g++
+----
+
+[#_configuration_3]
+==== Configuration 3
+Virtual machine running with
+
+* CPU: 16 vCPUs
+* RAM: 32GB
+* OS: Ubuntu 22.04.4 LTS 64-bit
+
+on the following hardware:
+
+* CPU: 2x Intel® Xeon® Processor E5-2690 @ 2,90 GHz × 8
+
+The software configuration is the same as in <<_configuration_2>>.
+
+[NOTE]
+If you use a non-root user on your machine, follow the instructions here: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user to use docker as a non-root user.
 
 === System settings
 
@@ -162,11 +204,12 @@ net.core.netdev_max_backlog = 2000
 net.ipv4.tcp_max_syn_backlog = 2048
 ----
 
+[#_workflow_for_acquiring_data_for_similarity_comparison]
 === Workflow for acquiring data for similarity comparison.
 
 ==== Automated (Recommended)
 
-We recommend using the tmux tool when running experiments on remote machines accessed via ssh. This allows you to maintain persistent sessions, even if the connection drops.
+We recommend using the tmux tool when running experiments on remote machines accessed via ssh.This allows you to maintain persistent sessions, even if the connection drops.
 
 To install tmux on Ubuntu, run:
 

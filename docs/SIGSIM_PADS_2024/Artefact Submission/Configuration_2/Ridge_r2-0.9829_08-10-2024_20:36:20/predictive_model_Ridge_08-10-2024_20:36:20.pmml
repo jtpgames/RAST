@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
+	<Header>
+		<Application name="JPMML-SkLearn library" version="1.7.10"/>
+		<Timestamp>2024-10-08T18:36:21Z</Timestamp>
+	</Header>
+	<MiningBuildTask>
+		<Extension name="repr">PMMLPipeline(steps=[('estimator', Ridge(alpha=100.0, max_iter=100))])</Extension>
+	</MiningBuildTask>
+	<DataDictionary>
+		<DataField name="Response Time s" optype="continuous" dataType="double"/>
+		<DataField name="PR 1" optype="continuous" dataType="double"/>
+		<DataField name="PR 3" optype="continuous" dataType="double"/>
+		<DataField name="Request Type" optype="continuous" dataType="double"/>
+		<DataField name="RPS" optype="continuous" dataType="double"/>
+		<DataField name="RPM" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<RegressionModel functionName="regression" algorithmName="sklearn.linear_model._ridge.Ridge">
+		<MiningSchema>
+			<MiningField name="Response Time s" usageType="target"/>
+			<MiningField name="PR 1"/>
+			<MiningField name="PR 3"/>
+			<MiningField name="Request Type"/>
+			<MiningField name="RPS"/>
+			<MiningField name="RPM"/>
+		</MiningSchema>
+		<RegressionTable intercept="0.012478413374524738">
+			<NumericPredictor name="PR 1" coefficient="2.8330891526942258E-5"/>
+			<NumericPredictor name="PR 3" coefficient="0.002355333122067964"/>
+			<NumericPredictor name="Request Type" coefficient="0.0014812168603874185"/>
+			<NumericPredictor name="RPS" coefficient="-2.1110477482043732E-4"/>
+			<NumericPredictor name="RPM" coefficient="2.93086767657049E-6"/>
+		</RegressionTable>
+	</RegressionModel>
+</PMML>
