@@ -227,11 +227,11 @@ net.ipv4.tcp_max_syn_backlog = 2048
 First, download the RAST repository from Zenodo. In a bash you can use the following command:
 [source,sh]
 ----
-wget https://zenodo.org/records/12740635/files/RAST.zip?download=1
+wget https://zenodo.org/records/13955733/files/RAST.zip?download=1
 ----
 
 [NOTE]
-The id in the URL refers to the specific version of the artefact. Make sure that you use the latest version found in the Zenodo repository because the version given in the command here will likely be outdated.
+The id in the URL refers to the specific version of the artefact. Make sure that you use the latest version found in the Zenodo repository because the version given in the command here might be outdated.
 
 ==== Automated (Recommended)
 
