@@ -163,9 +163,12 @@ To allow establishing tens of thousands of TCP connections during a load test, w
 ==== Limits
 The following settings allow the operating system to open a greater amount of so-called file descriptors. File descriptors are required to open files or network sockets.
 
-* Add a new line in */etc/pam.d/common-session*: `session required pam_limits.so`
+* Make sure the following line is present in */etc/pam.d/common-session*: `session required pam_limits.so`
+* Make sure the following line is present in */etc/pam.d/common-session-noninteractive*: `session required pam_limits.so`
 * Add a new line in */etc/security/limits.conf*: `<username> soft nofile 50000`
+* Reboot
 
+Verify that the limits are correctly set.
 Our limits are:
 ----
 ~$ ulimit -Sn
