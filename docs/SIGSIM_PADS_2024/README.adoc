@@ -5,7 +5,7 @@
 
 :xrefstyle: short
 
-**Last change from: 10.10.2024**
+**Last change from: 19.10.2024**
 
 **TODO: Accepted for publication at PADS 2024/TOMACS. Add link.**
 
@@ -209,6 +209,15 @@ net.ipv4.tcp_max_syn_backlog = 2048
 
 [#_workflow_for_acquiring_data_for_similarity_comparison]
 === Workflow for acquiring data for similarity comparison.
+
+First, download the RAST repository from Zenodo. In a bash you can use the following command:
+[source,sh]
+----
+wget https://zenodo.org/records/12740635/files/RAST.zip?download=1
+----
+
+[NOTE]
+The id in the URL refers to the specific version of the artefact. Make sure that you use the latest version found in the Zenodo repository because the version given in the command here will likely be outdated.
 
 ==== Automated (Recommended)
 

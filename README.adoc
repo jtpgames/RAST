@@ -47,6 +47,5 @@ pip install -r requirements.txt
 
 [#_reproduction_instructions_for_conferencesjournals]
 == Reproduction Instructions for Conferences/Journals
-* xref:docs/SIGSIM_PADS_2024/README.adoc[SIGSIM PADS 2024/TOMACS]: image:https://zenodo.org/badge/DOI/10.5281/zenodo.12740635.svg[link=https://doi.org/10.5281/zenodo.12740635]
-
+* xref:docs/SIGSIM_PADS_2024/README.adoc[SIGSIM PADS 2024/TOMACS]: image:https://zenodo.org/badge/DOI/10.5281/zenodo.11266812.svg[link=https://doi.org/10.5281/zenodo.11266812]
 
