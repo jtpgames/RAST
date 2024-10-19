@@ -53,6 +53,7 @@ This describes the contents of the folder `docs/SIGSIM_PADS_2024/Artefact Submis
 * Folder Configuration_1: Contains the result of running the instructions in Section <<_workflow_for_acquiring_data_for_similarity_comparison>> with <<_configuration_1>>.
 * Folder Configuration_2: Contains the result of running the instructions in Section <<_workflow_for_acquiring_data_for_similarity_comparison>> with <<_configuration_2>>.
 * Folder Configuration_3: Contains the result of running the instructions in Section <<_workflow_for_acquiring_data_for_similarity_comparison>> with <<_configuration_3>>.
+* Folder Configuration_4: Contains the result of running the instructions in Section <<_workflow_for_acquiring_data_for_similarity_comparison>> with <<_configuration_4>>.
 
 == Article Claims
 The article has the following claims:
@@ -153,10 +154,23 @@ on the following hardware:
 
 The software configuration is the same as in <<_configuration_2>>.
 
-[NOTE]
-If you use a non-root user on your machine, follow the instructions here: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user to use docker as a non-root user.
+[#_configuration_4]
+==== Configuration 4
+
+* CPU: Intel(R) Xeon(R) E-2278G CPU @ 3.40GHz × 16
+* RAM: 32GB
+* OS: Ubuntu 22.04.4 LTS 64-bit
+
+The software configuration is the same as in <<_configuration_2>>.
+
+[IMPORTANT]
+Because this machine has a lot more processing power that the other configurations, the load intensities as specified in this repository are not enough to generate a meaningful load for TeaStore. As a result, the variance in recorded processing times is very low. This leads to the predictor variables having minimal influence on the processing times in the training data. To overcome this, it is possible to scale the load up by setting the `LOAD_SCALING_FACTOR` variable in the file `locust_scripts/locust/official_teastore_locustfile.py`.
+For the results uploaded to this repository, we set `LOAD_SCALING_FACTOR = 7.0`.
 
 === System settings
+
+[NOTE]
+If you use a non-root user on your machine, follow the instructions here: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user to use docker as a non-root user.
 
 To allow establishing tens of thousands of TCP connections during a load test, we adjust some settings of the operating system. In the following, the settings are shown for the Ubuntu OS.
 
