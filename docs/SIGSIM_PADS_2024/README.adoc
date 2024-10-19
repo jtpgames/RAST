@@ -227,7 +227,7 @@ net.ipv4.tcp_max_syn_backlog = 2048
 First, download the RAST repository from Zenodo. In a bash you can use the following command:
 [source,sh]
 ----
-wget https://zenodo.org/records/13955733/files/RAST.zip?download=1
+wget https://zenodo.org/records/13955733/files/RAST.zip?download=1 -O RAST.zip
 ----
 
 [NOTE]
@@ -461,6 +461,12 @@ image::Screen_02.png[width=500]
 [#step_3]
 image::Screen_03.png[width=800]
 
+[#_instructions_for_adapting]
+== Instructions for Adapting RAST for other systems
+RAST can be adapted to different request-response based systems. Adapting RAST involves a series of steps depending on the system, the log files it generates, and the network API is serves. Adapting RAST usually involves programmatic extensions, like the implementation of Python scripts that convert log files and Kotlin files that simulate the system's network API.
+
+* How to integrate log files of other systems is explained in xref:../ETL/README.adoc[ETL_README] (`docs/ETL/README.adoc`)
+* How to implement a simulator that implements the system's network API is explained in xref:../../Simulators/README.adoc[README of Simulators Repository] (`Simulators/README.adoc`)
 
 [bibliography]
 == References
