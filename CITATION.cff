@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Tomak"
+  given-names: "Juri"
+  orcid: "https://orcid.org/0000-0001-5975-2758"
+title: "RAST"
+version: 1.4.0
+date-released: 2024-10-20
+url: "https://github.com/jtpgames/RAST"
