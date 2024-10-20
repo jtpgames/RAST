@@ -22,3 +22,6 @@
 	path = Regression-Analysis_Workload-Characterization
 	url = https://github.com/jtpgames/Regression-Analysis_Workload-Characterization
 	branch = main
+[submodule "RAST-Common-Python"]
+	path = RAST-Common-Python
+	url = https://github.com/jtpgames/RAST-Common-Python.git
