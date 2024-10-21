@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 PROFILES="low low_2 med high"
 
 function activate_venv_in_current_dir {
@@ -43,13 +45,13 @@ for corr_max_value in {0..1}; do
       ./delete_results.sh
 
 
-      echo "move to the simulator folder and launch a simulator"
+      echo "move to the simulator folder and launch a simulator with model=$model, corr_max=$corr_max_value"
       cd ../Simulators
       screen -S currentscreen -d -m ./gradlew run --args="-m $model_number_in_simulator -c $corr_max_value"
-      # sleep a bit to wait that the simulator is ready
+      echo "wait for 30 seconds for the simulator to be ready"
       sleep 30
 
-      echo "launch the test"
+      echo "launch the test with profile=$profile"
       cd ../locust_scripts
 
       activate_venv_in_current_dir
@@ -59,7 +61,8 @@ for corr_max_value in {0..1}; do
 
       # kill the simulator when the test ends
       screen -S currentscreen -X quit
-
+      echo "shutting down simulator and waiting for 10 seconds"
+      sleep 10
 
       echo "collect the results"
       cd ../Simulators
@@ -86,6 +89,6 @@ done
 
 # move all log files to Automations/Prediction_Data
 
-mkdir -pv Automations/Prediction_Data/Simulator_Logs
+mkdir -pv "Automations/Prediction_Data/Simulator_Logs"
 mv -v "Simulators/teastore_model_Ridge_T_PR_1_3" Automations/Prediction_Data/Simulator_Logs/
 mv -v "Simulators/teastore_model_DT_T-PR_1_3" Automations/Prediction_Data/Simulator_Logs/
