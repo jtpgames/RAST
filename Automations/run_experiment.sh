@@ -32,7 +32,9 @@ run_experiment() {
   # Execute each function and track its execution time
   for func in "${functions[@]}"
   do
+    echo "BEGIN $func"
     time_function $func
+    echo "END $func"
   done
 
   # Capture the end time of the whole script
