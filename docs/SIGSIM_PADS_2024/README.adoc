@@ -5,7 +5,7 @@
 
 :xrefstyle: short
 
-**Last change from: 19.10.2024**
+**Last change from: 21.10.2024**
 
 **TODO: Accepted for publication at PADS 2024/TOMACS. Add link.**
 
@@ -165,7 +165,8 @@ The software configuration is the same as in <<_configuration_2>>.
 
 [IMPORTANT]
 Because this machine has a lot more processing power that the other configurations, the load intensities as specified in this repository are not enough to generate a meaningful load for TeaStore. As a result, the variance in recorded processing times is very low. This leads to the predictor variables having minimal influence on the processing times in the training data. To overcome this, it is possible to scale the load up by setting the `LOAD_SCALING_FACTOR` variable in the file `locust_scripts/locust/official_teastore_locustfile.py`.
-For the results uploaded to this repository, we set `LOAD_SCALING_FACTOR = 7.0`.
+For the results uploaded to this repository, we set `LOAD_SCALING_FACTOR = 15.0` Additionally, we set the `TIME_SCALING_FACTOR` variable to `3.0` because using such a high load intensity causes the amount of users to spawn per second (which is 100 per recommendation of the locust developers) to be lower than the amount required by the load intensity profile.
+The r^2 scores of the resulting models are still not within our desired range. The problem is that the process running the load tester is fully utilizing one core and in its current version, it is not possible to run the load test across multiple operating system processes. Thus, the load tester is still not able to generate enough load to meaningfully put the TeaStore under enough load. We keep these results for reference but argue that this is a problem regarding training data acquisition on this specific machine and not a general problem of the RAST approach.
 
 === System settings
 
