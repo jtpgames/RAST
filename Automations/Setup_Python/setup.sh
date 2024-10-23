@@ -22,7 +22,11 @@ function create_and_activate_venv_in_current_dir {
   echo "installing python requirements"
   pip install wheel
   pip install --upgrade pip setuptools
-  pip install -r requirements.txt
+  if [ -f local_requirements.txt ]; then
+    pip install -r local_requirements.txt
+  else
+    pip install -r requirements.txt
+  fi
 
   # Check if the virtual environment was activated successfully
   if [ $? -eq 0 ]; then
