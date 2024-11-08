@@ -112,7 +112,7 @@ Packages to install (use `sudo apt-get install X` where `X` is the name of the f
 * curl
 * git
 * docker-compose (we used version 1.29.2)
-* docker (we used version 27.2.0)
+* docker (we used version 27.2.0) (follow the https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository[official instructions] to add the apt repository)
 * python3.12-venv
 * python3.12-dev
 * openjdk-11-jre-headless
