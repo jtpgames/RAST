@@ -59,9 +59,9 @@ This describes the contents of the folder `docs/SIGSIM_PADS_2024/Artefact Submis
 The article has the following claims:
 
 * C1: RAST is able to produce ridge and decision tree regression models for TeaStore with very high R² scores (> 0.9)
-* C2: Regardless of the model and correction value used, the similarity values consistently decrease as the load intensity increases.
+* C2: Regardless of the model and correction value used, the similarity values exhibit a downward trend as the load intensity increases. This trend is generally consistent across different request types between load intensities. Notably, the similarity values at high load intensity are consistently lower than those observed at low load intensity. 
 * C3: Performing the correction loop in the Simulator leads to lower similarity values.
-* C4: The ridge regression model consistently outperforms the decision tree model in terms of similarity values across all request types.
+* C4: The ridge regression model consistently outperforms the decision tree model in terms of similarity values across most request types. The average similarity value is consistenly higher for the ridge regression model.
 * C5: The Load Tester is able to consistently generate the same workload, i.e., generate a consistent count and sequence of requests in every execution of the load test
 
 To verify the claims, perform the full experiment according to the <<_instructions_for_conducting_experiments>>.
@@ -165,7 +165,7 @@ The software configuration is the same as in <<_configuration_2>>.
 
 [IMPORTANT]
 Because this machine has a lot more processing power that the other configurations, the load intensities as specified in this repository are not enough to generate a meaningful load for TeaStore. As a result, the variance in recorded processing times is very low. This leads to the predictor variables having minimal influence on the processing times in the training data. To overcome this, it is possible to scale the load up by setting the `LOAD_SCALING_FACTOR` variable in the file `locust_scripts/locust/official_teastore_locustfile.py`.
-For the results uploaded to this repository, we set `LOAD_SCALING_FACTOR = 15.0` Additionally, we set the `TIME_SCALING_FACTOR` variable to `3.0` because using such a high load intensity causes the amount of users to spawn per second (which is 100 per recommendation of the locust developers) to be lower than the amount required by the load intensity profile.
+For the results uploaded to this repository, we set `LOAD_SCALING_FACTOR = 15.0` Additionally, we set the `TIME_SCALING_FACTOR` variable to `3.0` because using such a high load intensity causes the amount of users to spawn per second (which is 100 per recommendation of the locust developers) to be lower than the amount required by the load intensity profile. Increasing the `LOAD_SCALING_FACTOR` and especially the `TIME_SCALING_FACTOR` also increases the total execution time of the experiment from around 2 hours to around 5 hours.
 The r^2 scores of the resulting models are still not within our desired range. The problem is that the process running the load tester is fully utilizing one core and in its current version, it is not possible to run the load test across multiple operating system processes. Thus, the load tester is still not able to generate enough load to meaningfully put the TeaStore under enough load. We keep these results for reference but argue that this is a problem regarding training data acquisition on this specific machine and not a general problem of the RAST approach.
 
 === System settings
