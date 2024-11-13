@@ -5,7 +5,7 @@
 
 :xrefstyle: short
 
-**Last change from: 21.10.2024**
+**Last change from: 13.11.2024**
 
 **TODO: Accepted for publication at PADS 2024/TOMACS. Add link.**
 
@@ -223,7 +223,7 @@ net.ipv4.tcp_max_syn_backlog = 2048
 First, download the RAST repository from Zenodo. In a bash you can use the following command:
 [source,sh]
 ----
-wget https://zenodo.org/records/13983836/files/RAST.zip?download=1 -O RAST.zip
+wget https://zenodo.org/records/14145393/files/RAST.zip?download=1 -O RAST.zip
 ----
 
 [NOTE]
