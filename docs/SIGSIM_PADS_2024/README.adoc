@@ -59,10 +59,9 @@ This describes the contents of the folder `docs/SIGSIM_PADS_2024/Artefact Submis
 The article has the following claims:
 
 * C1: RAST is able to produce ridge and decision tree regression models for TeaStore with very high R² scores (> 0.9)
-* C2: Regardless of the model and correction value used, the similarity values exhibit a downward trend as the load intensity increases. This trend is generally consistent across different request types between load intensities. Notably, the similarity values at high load intensity are consistently lower than those observed at low load intensity. 
+* C2: Regardless of the model and correction value used, the similarity values exhibit a downward trend as the load intensity increases. This trend is mostly consistent across different request types between load intensities. Notably, the similarity values at high load intensity are consistently lower than those observed at low load intensity.
 * C3: Performing the correction loop in the Simulator leads to lower similarity values.
-* C4: The ridge regression model consistently outperforms the decision tree model in terms of similarity values across most request types. The average similarity value is consistenly higher for the ridge regression model.
-* C5: The Load Tester is able to consistently generate the same workload, i.e., generate a consistent count and sequence of requests in every execution of the load test
+* C4: The ridge regression model consistently outperforms the decision tree model in terms of similarity values across most request types. The average similarity value is consistently higher for the ridge regression model.
 
 To verify the claims, perform the full experiment according to the <<_instructions_for_conducting_experiments>>.
 
@@ -77,19 +76,15 @@ The mapping between claims, figures and tables are as follows (original figures 
 
 |C2
 | Fig. 8-11
-| Observe the downward trend in the figures.
+| Observe the downward trend in the figures. After doing <<_similarity_comparison>>, see sheet `similarity_scores`.
 
 |C3
 | Fig. 8, 10 or Fig. 9, 11
-| Compare the respective figure pairs.
+| Compare the respective figure pairs. After doing <<_similarity_comparison>>, see sheet `Differences between Models`.
 
 |C4
 | Fig. 8, 9 or Fig. 10, 11, and Tables 4, 5
-| Compare the respective figure pairs and tables.
-
-|C5
-|Table 2
-| Look in the `Automations/Similarity_Comparison/requests_count.txt` file containing the number of requests found in the prediction and validation data.
+| Compare the respective figure pairs and tables. After doing <<_similarity_comparison>>, see sheet `Differences between Models`.
 
 |===
 
@@ -223,7 +218,7 @@ net.ipv4.tcp_max_syn_backlog = 2048
 ----
 
 [#_workflow_for_acquiring_data_for_similarity_comparison]
-=== Workflow for acquiring data for similarity comparison.
+=== Workflow for acquiring data for similarity comparison
 
 First, download the RAST repository from Zenodo. In a bash you can use the following command:
 [source,sh]
